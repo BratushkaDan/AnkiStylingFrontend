@@ -2,7 +2,7 @@ import * as React from 'react';
 import {useDispatch} from "react-redux";
 import PropTypes from 'prop-types';
 
-import {modifyField} from "./FormField.slice";
+import {modifyField, removeField} from "./FormField.slice";
 
 import "./Form.scss";
 
@@ -20,8 +20,12 @@ function Form(props) {
 
   let hint = props.type === 'comment' ? 'Комментарий' : `Код (${props.language.toUpperCase()})`;
 
+  function handleRemoval() {
+    dispatch(removeField(props.id))
+  }
+
   return <form className={`form-leftColumn form-leftColumn-${props.type}`}>
-    <div>{hint}:</div>
+    <div className="form-leftColumn__caption"><span className="hint">{hint}:</span><span className="removeField" onClick={handleRemoval}>🗑️</span></div>
     <textarea
       className="form-leftColumnTextarea"
       ref={textAreaRef}

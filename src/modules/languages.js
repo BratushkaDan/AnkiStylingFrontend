@@ -8,7 +8,7 @@ import 'prismjs/components/prism-json.min.js';
 import processRegex from './processRegex.js'
 
 const highlight = (language, code) => {
-  code = code.replaceAll('<', '&lt;').replaceAll('>', '&gt;')
+  if (language !== 'html') code = code.replaceAll('<', '&lt;').replaceAll('>', '&gt;');
   const html = Prism.highlight(code, Prism.languages[language], language)
   return `<div class="code_container ${language}"><pre>${html}</pre></div>`;
 }

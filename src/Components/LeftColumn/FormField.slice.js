@@ -16,11 +16,12 @@ const formFieldSlice = createSlice({
       if (field.id !== action.payload.id) return field;
       return { ...field, value: action.payload.value }
     }),
-    removeField: (state, action) => {
-      state = state.filter(field => field.id !== action.payload);
-    }
+    removeField: (state, action) => state.filter(field => {
+      return field.id !== action.payload
+    }),
+    wipeFields: () => [{type: 'comment', language: null, value: '', id: nanoid()}]
   }
 })
 
-export const { addField, modifyField, removeField } = formFieldSlice.actions;
+export const { addField, modifyField, removeField, wipeFields } = formFieldSlice.actions;
 export default formFieldSlice.reducer;

@@ -1,0 +1,77 @@
+/* Includes java and kotlin */
+div.code_container.java {
+  .token.comment,
+  .token.block-comment,
+  .token.prolog,
+  .token.doctype,
+  .token.cdata {
+    color: #999;
+  }
+
+  .token.punctuation {
+    color: rgb(136, 198, 190);
+  }
+
+  .token.tag,
+  .token.namespace,
+  .token.deleted {
+    color: #EAA2A2;
+  }
+
+  .token.function-name {
+    color: #6196cc;
+  }
+
+  .token.function {
+    color: #61AEEF;
+  }
+
+  .token.number {
+    color: #6897BB;
+  }
+
+  .token.property,
+  .token.class-name,
+  .token.constant,
+  .token.symbol,
+  .token.directive-hash,
+  .token.directive.keyword {
+    color: #FED5AF;
+  }
+
+  .token.boolean,
+  .token.selector,
+  .token.important,
+  .token.atrule,
+  .token.expression {
+    color: #C679DD;
+  }
+
+  .token.keyword,
+  .token.builtin {
+    color: #FF9F38;
+  }
+
+  .token.string,
+  .token.attr-value,
+  .token.char,
+  .token.regex,
+  .token.variable {
+    color: #98C379;
+  }
+
+  .token.parameter {
+    color: #9ACBD9;
+  }
+
+  span.token.keyword + span.token.punctuation + span.token.function,
+  .token.attr-name {
+    color: #E5C17C;
+  }
+
+  .token.operator,
+  .token.entity,
+  .token.url {
+    color: #67cdcc;
+  }
+}

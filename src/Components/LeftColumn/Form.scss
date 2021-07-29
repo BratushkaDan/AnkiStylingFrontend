@@ -6,6 +6,7 @@
     --placeholder-color: hsl(var(--hue), 20%, 20%);
     --focus-outline-color: hsl(var(--hue), 20%, 30%);
   }
+
   &-code {
     --hue: 110;
     --border-color: hsl(var(--hue), 20%, 30%);
@@ -13,6 +14,7 @@
     --placeholder-color: hsl(var(--hue), 20%, 20%);
     --focus-outline-color: hsl(var(--hue), 20%, 30%);
   }
+
   &Textarea {
     min-height: 10em;
     overflow-y: hidden;
@@ -25,11 +27,24 @@
     border: 1px solid var(--border-color);
     box-sizing: border-box;
     background: var(--background-color);
+
     &::placeholder {
       color: var(--placeholder-color);
     }
+
     &:focus {
       outline-color: var(--focus-outline-color);
+    }
+  }
+
+  &__caption {
+    display: flex;
+    justify-content: space-between;
+    //flex-flow: nowrap row-reverse;
+
+    .removeField {
+      text-align: right;
+      cursor: pointer;
     }
   }
 }

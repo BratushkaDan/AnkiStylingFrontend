@@ -1,29 +1,20 @@
 import * as React from 'react';
-import Form from "./Form";
+import {useDispatch, useSelector} from "react-redux";
 
 import './FormField.css';
 
+import Form from "./Form";
 import { addField } from "./FormField.slice";
-import {useEffect} from "react";
-import {useDispatch, useSelector} from "react-redux";
+import {useTopWindowOffset} from "../../hooks/hooks";
 
-function useTopOffset(initialState, ref) {
-  const [offset, setOffset] = React.useState(initialState);
-
-  React.useLayoutEffect(() => {
-    setOffset(ref.current.offsetTop + 'px');
-  }, [ref])
-
-  return offset;
-}
 
 function FormField(props, ref) {
   const inputFields = useSelector(state => state.inputFields);
   const dispatch = useDispatch();
 
-  const fieldOffset = useTopOffset('15%', ref);
+  const fieldOffset = useTopWindowOffset('20vh', ref);
 
-  useEffect(() => {
+  React.useEffect(() => {
     dispatch(addField('comment'));
   }, [dispatch]);
 
