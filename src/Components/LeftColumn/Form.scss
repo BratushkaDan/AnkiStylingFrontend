@@ -1,0 +1,35 @@
+.form-leftColumn {
+  &-comment {
+    --hue: 170;
+    --border-color: hsl(var(--hue), 20%, 30%);
+    --background-color: hsl(var(--hue), 20%, 80%);
+    --placeholder-color: hsl(var(--hue), 20%, 20%);
+    --focus-outline-color: hsl(var(--hue), 20%, 30%);
+  }
+  &-code {
+    --hue: 110;
+    --border-color: hsl(var(--hue), 20%, 30%);
+    --background-color: hsl(var(--hue), 20%, 80%);
+    --placeholder-color: hsl(var(--hue), 20%, 20%);
+    --focus-outline-color: hsl(var(--hue), 20%, 30%);
+  }
+  &Textarea {
+    min-height: 10em;
+    overflow-y: hidden;
+    padding: .3em;
+    box-sizing: border-box;
+
+    margin-top: .5em;
+    width: 100%;
+    resize: none;
+    border: 1px solid var(--border-color);
+    box-sizing: border-box;
+    background: var(--background-color);
+    &::placeholder {
+      color: var(--placeholder-color);
+    }
+    &:focus {
+      outline-color: var(--focus-outline-color);
+    }
+  }
+}
