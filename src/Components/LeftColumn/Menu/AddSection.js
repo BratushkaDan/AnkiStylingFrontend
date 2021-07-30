@@ -12,11 +12,11 @@ export default function AddSection() {
   // useShortcut(handleAddSnippet, ['alt', 't'], [language]);
 
   function handleAddComment() {
-    dispatch(addField('comment'))
+    dispatch(addField({type: 'comment'}))
   }
 
   function handleAddSnippet() {
-    if (language !== '') dispatch(addField('code', language));
+    if (language !== '') dispatch(addField({type: 'code', language}));
   }
 
   return <div className="addSection">

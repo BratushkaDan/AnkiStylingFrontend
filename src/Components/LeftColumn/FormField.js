@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import './FormField.css';
 
 import Form from "./Form";
-import { addField } from "./FormField.slice";
+import {addField} from "./FormField.slice";
 import {useTopWindowOffset} from "../../hooks/hooks";
 
 
@@ -15,14 +15,14 @@ function FormField(props, ref) {
   const fieldOffset = useTopWindowOffset('20vh', ref);
 
   React.useEffect(() => {
-    dispatch(addField('comment'));
+    dispatch(addField({type: 'comment'}));
   }, [dispatch]);
 
   function processInputFields() {
     return inputFields.map(obj => <Form key={obj.id} {...obj}/>)
   }
 
-  return <div ref={ref} className="formField" style={{ height: `calc(100vh - ${fieldOffset})`}}>
+  return <div ref={ref} className="formField" style={{height: `calc(100vh - ${fieldOffset})`}}>
     {processInputFields()}
   </div>
 }
