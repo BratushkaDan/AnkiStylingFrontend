@@ -31,8 +31,8 @@ function RendererField(props, ref) {
   }
 
   return <>
-    <button onClick={handleClipboardCopying}>Скопировать{/* (ctrl+shift+u)*/}</button>
-    <button onClick={handleClear}>Очистить{/* (ctrl + shift + h)*/}</button>
+    <button onClick={handleClipboardCopying}>Copy{/* (ctrl+shift+u)*/}</button>
+    <button onClick={handleClear}>Clear{/* (ctrl + shift + h)*/}</button>
     <div className="rendererField" ref={ref} style={{height: `calc(100vh - ${offset})`}}>
       {renderMarkupContainers(inputFields)}
     </div>

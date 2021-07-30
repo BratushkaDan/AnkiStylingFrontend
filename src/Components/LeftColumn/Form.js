@@ -18,7 +18,7 @@ function Form(props) {
     e.preventDefault();
   }
 
-  let hint = props.type === 'comment' ? 'Комментарий' : `Код (${props.language})`;
+  let hint = props.type === 'comment' ? 'Comment' : `Code (${props.language})`;
 
   function handleRemoval() {
     dispatch(removeField(props.id))
