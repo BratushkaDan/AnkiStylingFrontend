@@ -1,4 +1,4 @@
-div.code_container.vim {
+.code_container.elm {
   .token.comment,
   .token.block-comment,
   .token.prolog,
@@ -15,10 +15,6 @@ div.code_container.vim {
   .token.namespace,
   .token.deleted {
     color: #e2777a;
-  }
-
-  .token.variable {
-    color: #E06C75;
   }
 
   .token.function-name {
@@ -49,7 +45,8 @@ div.code_container.vim {
   .token.string,
   .token.attr-value,
   .token.char,
-  .token.regex {
+  .token.regex,
+  .token.variable {
     color: #98C379;
   }
 

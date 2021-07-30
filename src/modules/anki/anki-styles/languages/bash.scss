@@ -1,34 +1,17 @@
-div.code_container.mongo {
-  .token.comment,
-  .token.block-comment,
-  .token.prolog,
-  .token.doctype,
-  .token.cdata {
-    color: #999;
-  }
-
+.code_container.bash {
   .token.punctuation {
     color: rgb(136, 198, 190);
   }
 
-  .token.tag,
-  .token.namespace,
-  .token.deleted {
-    color: #e2777a;
-  }
-
-  .token.variable {
-    color: #E06C75;
-  }
-
-  .token.function-name, .token.number {
+  .token.function-name {
     color: #6196cc;
   }
 
   .token.function {
-    color: #61AEEF;
+    color: #f08d49;
   }
 
+  .token.number,
   .token.property,
   .token.class-name,
   .token.constant,
@@ -42,13 +25,11 @@ div.code_container.mongo {
   .token.atrule,
   .token.keyword,
   .token.builtin {
-    color: #C679DD;
+    color: #cc99cd;
   }
 
   .token.string,
-  .token.attr-value,
-  .token.char,
-  .token.regex {
+  .token.char{
     color: #98C379;
   }
 

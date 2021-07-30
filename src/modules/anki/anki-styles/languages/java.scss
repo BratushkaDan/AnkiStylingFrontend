@@ -1,4 +1,5 @@
-div.code_container.rust {
+/* Includes java and kotlin */
+.code_container.java {
   .token.comment,
   .token.block-comment,
   .token.prolog,
@@ -14,15 +15,15 @@ div.code_container.rust {
   .token.tag,
   .token.namespace,
   .token.deleted {
-    color: #e2777a;
+    color: #EAA2A2;
+  }
+
+  .token.function-name {
+    color: #6196cc;
   }
 
   .token.function {
-    color: #FFC66D;
-  }
-
-  .token.function-definition {
-    color: #6196cc;
+    color: #61AEEF;
   }
 
   .token.number {
@@ -35,7 +36,7 @@ div.code_container.rust {
   .token.symbol,
   .token.directive-hash,
   .token.directive.keyword {
-    color: #f8c555;
+    color: #FED5AF;
   }
 
   .token.boolean,

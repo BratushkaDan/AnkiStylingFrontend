@@ -1,4 +1,4 @@
-div.code_container.dart {
+.code_container.javascript {
   .token.comment,
   .token.block-comment,
   .token.prolog,
@@ -7,7 +7,7 @@ div.code_container.dart {
     color: #999;
   }
 
-  .token.punctuation {
+  .token.punctuation, .token.regex-delimiter {
     color: rgb(136, 198, 190);
   }
 
@@ -17,7 +17,8 @@ div.code_container.dart {
     color: #e2777a;
   }
 
-  .token.function-name {
+  .token.function-name,
+  .token.escape {
     color: #6196cc;
   }
 
@@ -29,7 +30,8 @@ div.code_container.dart {
   .token.property,
   .token.class-name,
   .token.constant,
-  .token.symbol {
+  .token.symbol,
+  .token.regex-flags {
     color: #f8c555;
   }
 
@@ -46,7 +48,8 @@ div.code_container.dart {
   .token.attr-value,
   .token.char,
   .token.regex,
-  .token.variable {
+  .token.variable,
+  .token.range {
     color: #98C379;
   }
 

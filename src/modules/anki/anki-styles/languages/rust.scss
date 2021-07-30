@@ -1,4 +1,4 @@
-div.code_container.swift {
+.code_container.rust {
   .token.comment,
   .token.block-comment,
   .token.prolog,
@@ -17,20 +17,24 @@ div.code_container.swift {
     color: #e2777a;
   }
 
-  .token.function-name {
+  .token.function {
+    color: #FFC66D;
+  }
+
+  .token.function-definition {
     color: #6196cc;
   }
 
-  .token.function {
-    color: #61AEEF;
+  .token.number {
+    color: #6897BB;
   }
 
-  .token.number,
   .token.property,
   .token.class-name,
   .token.constant,
   .token.symbol,
-  .token.builtin {
+  .token.directive-hash,
+  .token.directive.keyword {
     color: #f8c555;
   }
 
@@ -38,8 +42,13 @@ div.code_container.swift {
   .token.selector,
   .token.important,
   .token.atrule,
-  .token.keyword {
+  .token.expression {
     color: #C679DD;
+  }
+
+  .token.keyword,
+  .token.builtin {
+    color: #FF9F38;
   }
 
   .token.string,

@@ -1,22 +1,22 @@
-import {useState, useEffect, useRef, forwardRef } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import {useState, useEffect, useRef, forwardRef} from 'react';
+import {useSelector, useDispatch} from 'react-redux';
 
 import './RendererField.scss';
 
-import mapLanguage from "../../modules/mapLanguage";
-import * as processInput from "../../modules/languages";
+
+import * as highlightSyntax from "../../modules/anki/highlight.js";
 
 import {useTopWindowOffset, useShortcut} from "../../hooks/hooks";
 import {wipeFields} from "../LeftColumn/FormField.slice";
 
 function formatForHighlighting(inputFields) {
-  return inputFields.map(field => [mapLanguage(field.language), field.value]);
+  return inputFields.map(field => [(field.language === null) ? 'comment' : field.language, field.value]);
 }
 
-function highlight(inputFields) {
+async function highlight(inputFields) {
   let formattedData = formatForHighlighting(inputFields);
   let result = '';
-  for (let [language, code] of formattedData) result += processInput[language](code);
+  for (let [language, code] of formattedData) result += await highlightSyntax[language](code);
   return result;
 }
 
@@ -27,8 +27,8 @@ function RendererField(props, ref) {
   const dispatch = useDispatch();
   const offset = useTopWindowOffset('20vh', ref);
 
-  useShortcut(handleClipboardCopying, ['control', 'shift', 'u'], [value]);
-  useShortcut(handleClear, ['control', 'shift', 'h'], []);
+  // useShortcut(handleClipboardCopying, ['control', 'shift', 'u'], [value]);
+  // useShortcut(handleClear, ['control', 'shift', 'h'], []);
 
   useEffect(() => {
     clearTimeout(timeoutRef.current);
@@ -36,7 +36,7 @@ function RendererField(props, ref) {
   }, [inputFields])
 
   function handleTextarea() {
-    setValue(highlight(inputFields))
+    highlight(inputFields).then(value => setValue(value));
   }
 
   function handleClipboardCopying(e) {
@@ -52,9 +52,9 @@ function RendererField(props, ref) {
   }
 
   return <>
-    <button onClick={handleClipboardCopying}>Скопировать (ctrl+shift+u)</button>
-    <button onClick={handleClear}>Очистить (ctrl + shift + h)</button>
-    <div className="rendererField" ref={ref} style={{height: `calc(100vh - ${offset})`}}  dangerouslySetInnerHTML={{__html: value}}/>
+    <button onClick={handleClipboardCopying}>Скопировать{/* (ctrl+shift+u)*/}</button>
+    <button onClick={handleClear}>Очистить{/* (ctrl + shift + h)*/}</button>
+    <div className="rendererField" ref={ref} style={{height: `calc(100vh - ${offset})`}} dangerouslySetInnerHTML={{__html: value}}/>
   </>
 }
 

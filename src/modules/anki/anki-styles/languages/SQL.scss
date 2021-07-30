@@ -1,4 +1,4 @@
-div.code_container.graphql {
+.code_container.SQL {
   .token.comment,
   .token.block-comment,
   .token.prolog,
@@ -13,9 +13,12 @@ div.code_container.graphql {
 
   .token.tag,
   .token.namespace,
-  .token.deleted,
-  .token.attr-name {
+  .token.deleted {
     color: #e2777a;
+  }
+
+  .token.variable {
+    color: #E06C75;
   }
 
   .token.function-name {
@@ -46,13 +49,17 @@ div.code_container.graphql {
   .token.string,
   .token.attr-value,
   .token.char,
-  .token.regex,
-  .token.variable {
+  .token.regex {
     color: #98C379;
   }
 
   .token.parameter {
     color: #9ACBD9;
+  }
+
+  span.token.keyword + span.token.punctuation + span.token.function,
+  .token.attr-name {
+    color: #E5C17C;
   }
 
   .token.operator,

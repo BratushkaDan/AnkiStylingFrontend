@@ -1,5 +1,4 @@
-/* Includes java and kotlin */
-div.code_container.java {
+.code_container.dart {
   .token.comment,
   .token.block-comment,
   .token.prolog,
@@ -15,7 +14,7 @@ div.code_container.java {
   .token.tag,
   .token.namespace,
   .token.deleted {
-    color: #EAA2A2;
+    color: #e2777a;
   }
 
   .token.function-name {
@@ -26,30 +25,21 @@ div.code_container.java {
     color: #61AEEF;
   }
 
-  .token.number {
-    color: #6897BB;
-  }
-
+  .token.number,
   .token.property,
   .token.class-name,
   .token.constant,
-  .token.symbol,
-  .token.directive-hash,
-  .token.directive.keyword {
-    color: #FED5AF;
+  .token.symbol {
+    color: #f8c555;
   }
 
   .token.boolean,
   .token.selector,
   .token.important,
   .token.atrule,
-  .token.expression {
-    color: #C679DD;
-  }
-
   .token.keyword,
   .token.builtin {
-    color: #FF9F38;
+    color: #C679DD;
   }
 
   .token.string,

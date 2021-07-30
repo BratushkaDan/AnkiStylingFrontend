@@ -1,0 +1,90 @@
+@import 'languages/html';
+@import 'languages/css';
+@import 'languages/javascript';
+@import 'languages/python';
+@import 'languages/bash';
+@import 'languages/SQL';
+@import 'languages/MongoDB';
+@import 'languages/json';
+@import 'languages/с';
+@import 'languages/с#';
+@import 'languages/graphql';
+@import 'languages/java';
+@import 'languages/dart';
+@import 'languages/rust';
+//@import 'languages/swift';
+//@import 'languages/elm';
+//@import 'languages/vim';
+
+@font-face {
+  font-family: "FiraCode";
+  src: url("../../../fonts/_FiraCode.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Ubuntu";
+  src: url("../../../fonts/_Ubuntu-R.ttf") format("truetype");
+}
+
+
+pre {
+  background: #2F2F31;
+  overflow-wrap: normal;
+  padding-left: 10px;
+  line-height: 1.65;
+}
+
+pre, code {
+  font-family: FiraCode, monospace;
+  font-size: .9rem;
+  //font-size: 1.125rem;
+  overflow-wrap: normal;
+  width: inherit;
+}
+
+img {
+  display: block;
+  max-width: calc(100% - 10px);
+  max-height: none;
+  margin: 5px auto;
+}
+
+div.comment {
+  width: calc(100% - 1em);
+  border: 2px solid #000;
+  border-radius: 6px;
+  background: #18191A;
+  padding: 5px;
+  box-sizing: border-box;
+  text-align: center;
+  margin: 5px .5em;
+  color: #f5f6f7;
+  letter-spacing: .8px;
+
+  & i {
+    font-style: normal;
+    color: rgb(166, 226, 46);
+  }
+
+  & u {
+    background: #606770;
+    text-decoration: none;
+    color: #f5f6f7;
+    border-radius: 5px;
+  }
+
+  & sup {
+    font-family: FiraCode, monospace;
+    vertical-align: bottom;
+    font-size: 18px;
+    letter-spacing: 0;
+  }
+}
+
+.code_container {
+  text-align: left;
+
+  & i {
+    font-style: normal;
+  }
+}

@@ -18,7 +18,7 @@ function Form(props) {
     e.preventDefault();
   }
 
-  let hint = props.type === 'comment' ? 'Комментарий' : `Код (${props.language.toUpperCase()})`;
+  let hint = props.type === 'comment' ? 'Комментарий' : `Код (${props.language})`;
 
   function handleRemoval() {
     dispatch(removeField(props.id))

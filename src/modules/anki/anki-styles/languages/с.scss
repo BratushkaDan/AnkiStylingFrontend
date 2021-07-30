@@ -1,4 +1,5 @@
-div.code_container.html {
+/* Includes C, C++ and CMake  */
+.code_container.c {
   .token.comment,
   .token.block-comment,
   .token.prolog,
@@ -17,23 +18,24 @@ div.code_container.html {
     color: #e2777a;
   }
 
-  .token.variable {
-    color: #E06C75;
-  }
-
   .token.function-name {
     color: #6196cc;
   }
 
   .token.function {
-    color: #61AEEF;
+    color: #FFC66D;
   }
 
-  .token.number,
+  .token.number {
+    color: #6897BB;
+  }
+
   .token.property,
   .token.class-name,
   .token.constant,
-  .token.symbol {
+  .token.symbol,
+  .token.directive-hash,
+  .token.directive.keyword {
     color: #f8c555;
   }
 
@@ -41,15 +43,20 @@ div.code_container.html {
   .token.selector,
   .token.important,
   .token.atrule,
+  .token.expression {
+    color: #C679DD;
+  }
+
   .token.keyword,
   .token.builtin {
-    color: #C679DD;
+    color: #FF9F38;
   }
 
   .token.string,
   .token.attr-value,
   .token.char,
-  .token.regex {
+  .token.regex,
+  .token.variable {
     color: #98C379;
   }
 
@@ -58,11 +65,12 @@ div.code_container.html {
   }
 
   span.token.keyword + span.token.punctuation + span.token.function,
-  .token.attr-name, .token.entity {
+  .token.attr-name {
     color: #E5C17C;
   }
 
   .token.operator,
+  .token.entity,
   .token.url {
     color: #67cdcc;
   }

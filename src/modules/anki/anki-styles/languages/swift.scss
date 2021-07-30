@@ -1,4 +1,4 @@
-div.code_container.SQL {
+.code_container.swift {
   .token.comment,
   .token.block-comment,
   .token.prolog,
@@ -17,10 +17,6 @@ div.code_container.SQL {
     color: #e2777a;
   }
 
-  .token.variable {
-    color: #E06C75;
-  }
-
   .token.function-name {
     color: #6196cc;
   }
@@ -33,7 +29,8 @@ div.code_container.SQL {
   .token.property,
   .token.class-name,
   .token.constant,
-  .token.symbol {
+  .token.symbol,
+  .token.builtin {
     color: #f8c555;
   }
 
@@ -41,15 +38,15 @@ div.code_container.SQL {
   .token.selector,
   .token.important,
   .token.atrule,
-  .token.keyword,
-  .token.builtin {
+  .token.keyword {
     color: #C679DD;
   }
 
   .token.string,
   .token.attr-value,
   .token.char,
-  .token.regex {
+  .token.regex,
+  .token.variable {
     color: #98C379;
   }
 

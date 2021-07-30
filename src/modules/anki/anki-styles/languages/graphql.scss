@@ -1,4 +1,4 @@
-div.code_container.javascript {
+.code_container.graphql {
   .token.comment,
   .token.block-comment,
   .token.prolog,
@@ -7,18 +7,18 @@ div.code_container.javascript {
     color: #999;
   }
 
-  .token.punctuation, .token.regex-delimiter {
+  .token.punctuation {
     color: rgb(136, 198, 190);
   }
 
   .token.tag,
   .token.namespace,
-  .token.deleted {
+  .token.deleted,
+  .token.attr-name {
     color: #e2777a;
   }
 
-  .token.function-name,
-  .token.escape {
+  .token.function-name {
     color: #6196cc;
   }
 
@@ -30,8 +30,7 @@ div.code_container.javascript {
   .token.property,
   .token.class-name,
   .token.constant,
-  .token.symbol,
-  .token.regex-flags {
+  .token.symbol {
     color: #f8c555;
   }
 
@@ -48,18 +47,12 @@ div.code_container.javascript {
   .token.attr-value,
   .token.char,
   .token.regex,
-  .token.variable,
-  .token.range {
+  .token.variable {
     color: #98C379;
   }
 
   .token.parameter {
     color: #9ACBD9;
-  }
-
-  span.token.keyword + span.token.punctuation + span.token.function,
-  .token.attr-name {
-    color: #E5C17C;
   }
 
   .token.operator,

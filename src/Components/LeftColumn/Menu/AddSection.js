@@ -8,8 +8,8 @@ export default function AddSection() {
   const language = useSelector(state => state.language);
   const dispatch = useDispatch();
 
-  useShortcut(handleAddComment, ['alt', 'r']);
-  useShortcut(handleAddSnippet, ['alt', 't'], [language]);
+  // useShortcut(handleAddComment, ['alt', 'r']);
+  // useShortcut(handleAddSnippet, ['alt', 't'], [language]);
 
   function handleAddComment() {
     dispatch(addField('comment'))
