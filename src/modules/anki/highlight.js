@@ -95,8 +95,7 @@ export async function c(code) {
 
 export async function cpp(code) {
   await Promise.all([import('prismjs/components/prism-c.min.js'), import('prismjs/components/prism-cpp.min.js')]);
-  code = code.replaceAll('::', '꞉꞉');
-  return highlight('cpp', code, 'c');
+  return highlight('cpp', code, 'c').then(code => code.replaceAll('::', '꞉꞉'));
 }
 
 export async function cmake(code) {
