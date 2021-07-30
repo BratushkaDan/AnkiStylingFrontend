@@ -4,7 +4,6 @@ export function useTopWindowOffset(initialState, ref) {
   const [offset, setOffset] = useState(initialState);
 
   useLayoutEffect(() => {
-    console.log(ref.current.getBoundingClientRect().top);
     setOffset(Math.ceil(ref.current.getBoundingClientRect().top) + 'px');
   }, [ref])
 
