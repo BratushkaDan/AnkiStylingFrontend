@@ -77,7 +77,8 @@ export async function python(code) {
 
 export async function rust(code) {
   await import('prismjs/components/prism-rust.min.js');
-  return highlight('rust', code);
+          
+  return highlight('rust', code).then(code => code.replaceAll('::', '꞉꞉'));
 }
 
 export async function cs(code) {
