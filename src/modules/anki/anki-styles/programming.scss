@@ -16,6 +16,33 @@
 //@import 'languages/elm';
 //@import 'languages/vim';
 
+@import 'languages/html';
+@import 'languages/css';
+@import 'languages/javascript';
+@import 'languages/python';
+@import 'languages/bash';
+@import 'languages/SQL';
+@import 'languages/MongoDB';
+@import 'languages/json';
+@import 'languages/с';
+@import 'languages/с#';
+@import 'languages/graphql';
+@import 'languages/java';
+@import 'languages/dart';
+@import 'languages/rust';
+//@import 'languages/swift';
+//@import 'languages/elm';
+//@import 'languages/vim';
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: .5em;
+  margin-bottom: .5em;
+}
+
+li {
+  text-align: left;
+}
+
 pre {
   background: #2F2F31;
   overflow-wrap: normal;
@@ -25,8 +52,7 @@ pre {
 
 pre, code {
   font-family: FiraCode, monospace;
-  font-size: .9rem;
-  //font-size: 1.125rem;
+  font-size: 1.125rem;
   overflow-wrap: normal;
   width: inherit;
 }

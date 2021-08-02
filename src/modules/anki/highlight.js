@@ -1,6 +1,7 @@
 import Prism from 'prismjs'
 
-import {postProcessComment, processRegex} from './utils';
+import {processRegex} from './utils';
+import marked from "marked";
 
 async function highlight(language, code, cssClassnameAlias = language) {
   const html = Prism.highlight(code, Prism.languages[language], language)
@@ -14,13 +15,8 @@ async function highlightRegex(...args) {
 
 export async function comment(text) {
   text = text.replaceAll('<', '&lt;').replaceAll('>', '&gt;');
-  let result = '';
-
-  for (let str of text.split('\n')) result += str + '<br>';
-
-  result = postProcessComment(result);
-
-  return `<div class="comment"><div>${result}</div></div>`
+  text = marked(text);
+  return `<div class="comment"><div>${text}</div></div>`
 }
 
 export async function html(code) {
