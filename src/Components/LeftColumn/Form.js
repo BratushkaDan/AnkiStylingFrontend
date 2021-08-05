@@ -2,7 +2,7 @@ import * as React from 'react';
 import {useDispatch} from "react-redux";
 import PropTypes from 'prop-types';
 
-import {modifyField, removeField} from "./FormField.slice";
+import {modifyField, removeField} from "../../slices/Field.slice";
 
 import "./Form.scss";
 
@@ -18,6 +18,10 @@ function Form(props) {
     e.preventDefault();
   }
 
+  function preventKeydownBubbling(e) {
+    e.stopPropagation();
+  }
+
   let hint = props.type === 'comment' ? 'Comment' : `Code (${props.language})`;
 
   function handleRemoval() {
@@ -30,6 +34,7 @@ function Form(props) {
       className="form-leftColumnTextarea"
       ref={textAreaRef}
       value={value}
+      onKeyDown={preventKeydownBubbling}
       onChange={handleTextarea}
       style={{height: fieldHeight}}
       placeholder={hint}/>

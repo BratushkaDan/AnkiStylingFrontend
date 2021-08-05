@@ -1,30 +1,29 @@
 import * as React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 
-import './FormField.css';
+import './FormField.scss';
 
 import Form from "./Form";
-import {addField} from "./FormField.slice";
+import {addField} from "../../slices/Field.slice";
 import {useTopWindowOffset} from "../../hooks/hooks";
 
 
-function FormField(props, ref) {
+export default function FormField() {
+  console.log('renders');
   const inputFields = useSelector(state => state.inputFields);
   const dispatch = useDispatch();
-
-  const fieldOffset = useTopWindowOffset('20vh', ref);
+  const formFieldRef = React.useRef(null);
+  const fieldOffset = useTopWindowOffset('20vh', formFieldRef);
 
   React.useEffect(() => {
     dispatch(addField({type: 'comment'}));
   }, [dispatch]);
 
   function processInputFields() {
-    return inputFields.map(obj => <Form key={obj.id} {...obj}/>)
+    return inputFields.map(field => <Form key={field.id} {...field}/>)
   }
 
-  return <div ref={ref} className="formField" style={{height: `calc(100vh - ${fieldOffset})`}}>
+  return <div ref={formFieldRef} className="formField" style={{height: `calc(100vh - ${fieldOffset})`}}>
     {processInputFields()}
   </div>
 }
-
-export default React.forwardRef(FormField);

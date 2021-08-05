@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import './LanguagePicker.scss';
 
-import { pickLanguage } from "./LanguagePicker.slice";
+import { pickLanguage } from "../../../slices/Language.slice";
 
 export default function LanguagePicker() {
   const language = useSelector(state => state.language);

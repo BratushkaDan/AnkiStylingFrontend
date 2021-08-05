@@ -1,4 +1,4 @@
-import {forwardRef} from 'react';
+import {useRef} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 
 import './RendererField.scss';
@@ -6,15 +6,16 @@ import './RendererField.scss';
 import MarkupContainer from "./MarkupContainer";
 
 import {useTopWindowOffset, useShortcut} from "../../hooks/hooks";
-import {wipeFields} from "../LeftColumn/FormField.slice";
+import {wipeFields} from "../../slices/Field.slice";
 
-function RendererField(props, ref) {
+export default function RendererField() {
   const inputFields = useSelector(state => state.inputFields);
   const dispatch = useDispatch();
-  const offset = useTopWindowOffset('20vh', ref);
+  const rendererFieldRef = useRef(null);
+  const offset = useTopWindowOffset('20vh', rendererFieldRef);
 
-  // useShortcut(handleClipboardCopying, ['control', 'shift', 'u'], [value]);
-  // useShortcut(handleClear, ['control', 'shift', 'h'], []);
+  useShortcut(handleClipboardCopying, ['control', 'shift', 'u'], [inputFields]);
+  useShortcut(handleClear, ['control', 'shift', 'h'], []);
 
   function handleClipboardCopying(e) {
     navigator.clipboard.writeText(inputFields.map(field => field.highlightedMarkup).join(''));
@@ -33,10 +34,8 @@ function RendererField(props, ref) {
   return <>
     <button onClick={handleClipboardCopying}>Copy{/* (ctrl+shift+u)*/}</button>
     <button onClick={handleClear}>Clear{/* (ctrl + shift + h)*/}</button>
-    <div className="rendererField" ref={ref} style={{height: `calc(100vh - ${offset})`}}>
+    <div className="rendererField" ref={rendererFieldRef} style={{height: `calc(100vh - ${offset})`}}>
       {renderMarkupContainers(inputFields)}
     </div>
   </>
 }
-
-export default forwardRef(RendererField);

@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const languagePickerSlice = createSlice({
+const languageSlice = createSlice({
   name: 'language',
   initialState: '',
   reducers: {
@@ -8,5 +8,5 @@ const languagePickerSlice = createSlice({
   }
 })
 
-export const { pickLanguage } = languagePickerSlice.actions;
-export default languagePickerSlice.reducer;
+export const { pickLanguage } = languageSlice.actions;
+export default languageSlice.reducer;

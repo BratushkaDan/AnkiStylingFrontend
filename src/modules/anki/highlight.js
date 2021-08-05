@@ -16,7 +16,7 @@ async function highlightRegex(...args) {
 export async function comment(text) {
   text = text.replaceAll('<', '&lt;').replaceAll('>', '&gt;');
   text = marked(text);
-  return `<div class="comment"><div>${text}</div></div>`
+  return `<div class="comment">${text}</div>`
 }
 
 export async function html(code) {

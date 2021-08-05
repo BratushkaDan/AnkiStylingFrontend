@@ -1,5 +1,5 @@
 import './AddSection.scss';
-import {addField} from "../FormField.slice";
+import {addField} from "../../../slices/Field.slice";
 import {useSelector, useDispatch} from "react-redux";
 
 import {useShortcut} from "../../../hooks/hooks";
@@ -8,8 +8,8 @@ export default function AddSection() {
   const language = useSelector(state => state.language);
   const dispatch = useDispatch();
 
-  // useShortcut(handleAddComment, ['alt', 'r']);
-  // useShortcut(handleAddSnippet, ['alt', 't'], [language]);
+  useShortcut(handleAddComment, ['alt', 'r']);
+  useShortcut(handleAddSnippet, ['alt', 't'], [language]);
 
   function handleAddComment() {
     dispatch(addField({type: 'comment'}))

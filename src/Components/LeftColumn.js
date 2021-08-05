@@ -1,16 +1,9 @@
-import {useRef} from "react";
+import * as React from 'react';
 
-import Menu from './LeftColumn/Menu';
-import FormField from "./LeftColumn/FormField";
+import './LeftColumn.scss';
 
-import './LeftColumn.css';
-
-export default function LeftColumn() {
-  const formFieldRef = useRef(null);
-
+export default function LeftColumn(props) {
   return (<div className="leftColumn">
-    <h1>Input</h1>
-    <Menu/>
-    <FormField ref={formFieldRef}/>
+    {props.children}
   </div>)
 }
