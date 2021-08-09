@@ -14,7 +14,7 @@ async function highlightRegex(...args) {
 }
 
 export async function comment(text) {
-  text = text.replaceAll('<', '&lt;').replaceAll('>', '&gt;');
+  // text = text.replaceAll('<', '&lt;').replaceAll('>', '&gt;');
   text = marked(text);
   return `<div class="comment">${text}</div>`
 }
@@ -73,7 +73,7 @@ export async function python(code) {
 
 export async function rust(code) {
   await import('prismjs/components/prism-rust.min.js');
-          
+
   return highlight('rust', code).then(code => code.replaceAll('::', '꞉꞉'));
 }
 
