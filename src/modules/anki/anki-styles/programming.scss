@@ -68,12 +68,19 @@ img {
   margin: 5px auto;
 }
 
-#front:not(.front_hidden) div.comment code, #back div.comment code {
+div.comment code {
   background: rgba(135, 131, 120, .15);
   color: #EB5757;
   border-radius: 3px;
   padding: .2em .3em;
 }
+
+//#front:not(.front_hidden) div.comment code, #back div.comment code {
+//  background: rgba(135, 131, 120, .15);
+//  color: #EB5757;
+//  border-radius: 3px;
+//  padding: .2em .3em;
+//}
 
 div.comment {
   width: calc(100% - 1em);
@@ -87,23 +94,9 @@ div.comment {
   color: #f5f6f7;
   letter-spacing: .8px;
 
-  & i {
+  & i, & em {
     font-style: normal;
     color: rgb(166, 226, 46);
-  }
-
-  & u {
-    background: #606770;
-    text-decoration: none;
-    color: #f5f6f7;
-    border-radius: 5px;
-  }
-
-  & sup {
-    font-family: FiraCode, monospace;
-    vertical-align: bottom;
-    font-size: 18px;
-    letter-spacing: 0;
   }
 }
 
