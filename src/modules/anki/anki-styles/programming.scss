@@ -43,18 +43,22 @@ li {
   text-align: left;
 }
 
-pre {
+.code_container pre {
   background: #2F2F31;
   overflow-wrap: normal;
   padding-left: 10px;
   line-height: 1.65;
 }
 
-pre, code {
+.code_container pre, .code_container code {
   font-family: FiraCode, monospace;
   font-size: 1.125rem;
   overflow-wrap: normal;
   width: inherit;
+}
+
+p {
+  line-height: 1.6;
 }
 
 img {
@@ -62,6 +66,13 @@ img {
   max-width: calc(100% - 10px);
   max-height: none;
   margin: 5px auto;
+}
+
+#front:not(.front_hidden) div.comment code, #back div.comment code {
+  background: rgba(135, 131, 120, .15);
+  color: #EB5757;
+  border-radius: 3px;
+  padding: .2em .3em;
 }
 
 div.comment {
