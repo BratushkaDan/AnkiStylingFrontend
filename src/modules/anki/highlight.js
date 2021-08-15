@@ -3,9 +3,11 @@ import Prism from 'prismjs'
 import {processRegex} from './utils';
 import marked from "marked";
 
+import './mapPrismDefaultClassnames.js';
+
 async function highlight(language, code, cssClassnameAlias = language) {
   const html = Prism.highlight(code, Prism.languages[language], language)
-  return `<div class="code_container ${cssClassnameAlias}"><pre>${html}</pre></div>`;
+  return `<div class="cc ${cssClassnameAlias}"><pre>${html}</pre></div>`;
 }
 
 async function highlightRegex(...args) {
@@ -14,9 +16,8 @@ async function highlightRegex(...args) {
 }
 
 export async function comment(text) {
-  // text = text.replaceAll('<', '&lt;').replaceAll('>', '&gt;');
   text = marked(text);
-  return `<div class="comment">${text}</div>`
+  return `<div class="com">${text}</div>`
 }
 
 export async function html(code) {
@@ -28,17 +29,17 @@ export async function css(code) {
 }
 
 export async function javascript(code) {
-  return highlightRegex('javascript', code);
+  return highlightRegex('javascript', code, 'js');
 }
 
 export async function react(code) {
   await import('prismjs/components/prism-jsx.min.js');
-  return highlightRegex('jsx', code, 'javascript');
+  return highlightRegex('jsx', code, 'js');
 }
 
 export async function typescript(code) {
   await import('prismjs/components/prism-typescript.min.js');
-  return highlight('typescript', code, 'javascript')
+  return highlight('typescript', code, 'js')
 }
 
 export async function scss(code) {
@@ -58,7 +59,7 @@ export async function less(code) {
 
 export async function graphql(code) {
   await import('prismjs/components/prism-graphql.min.js');
-  return highlight('graphql', code);
+  return highlight('graphql', code, 'gql');
 }
 
 export async function json(code) {
@@ -68,7 +69,7 @@ export async function json(code) {
 
 export async function python(code) {
   await import('prismjs/components/prism-python.min.js');
-  return highlight('python', code)
+  return highlight('python', code, 'py')
 }
 
 export async function rust(code) {
@@ -109,7 +110,7 @@ export async function kotlin(code) {
 
 export async function sql(code) {
   await import('prismjs/components/prism-sql.min.js');
-  return highlight('sql', code, 'SQL');
+  return highlight('sql', code);
 }
 
 export async function dart(code) {
@@ -126,6 +127,7 @@ export async function bash(code) {
   await import('prismjs/components/prism-bash.min.js');
   return highlight('bash', code);
 }
+
 //
 // export async function elm(code) {
 //   await import('prismjs/components/prism-elm.min.js');

@@ -9,7 +9,6 @@ import {useTopWindowOffset} from "../../hooks/hooks";
 
 
 export default function FormField() {
-  console.log('renders');
   const inputFields = useSelector(state => state.inputFields);
   const dispatch = useDispatch();
   const formFieldRef = React.useRef(null);

@@ -1,0 +1,46 @@
+@import 'anki-styles/languages/tokenClassnames';
+
+:export {
+  token: $token;
+  keyword: $keyword;
+  tag: $tag;
+  punctuation: $punctuation;
+  function: $function;
+  function-name: $function-name;
+  number: $number;
+  property: $property;
+  class-name: $class-name;
+  constant: $constant;
+  symbol: $symbol;
+  boolean: $boolean;
+  selector: $selector;
+  important: $important;
+  builtin: $builtin;
+  string: $string;
+  attr-value: $attr-value;
+  variable: $variable;
+  regex: $regex;
+  parameter: $parameter;
+  operator: $operator;
+  namespace: $namespace;
+  expression: $expression;
+  comment: $comment;
+  block-comment: $block-comment;
+
+  atrule: $atrule;
+  prolog: $prolog;
+  doctype: $doctype;
+  cdata: $cdata;
+  regex-delimiter: $regex-delimiter;
+  deleted: $deleted;
+  escape: $escape;
+  url: $url;
+  entity: $entity;
+  attr-name: $attr-name;
+  range: $range;
+  char: $char;
+  regex-flags: $regex-flags;
+  directive: $directive;
+  directive-hash: $directive-hash;
+  function-definition: $function-definition;
+}

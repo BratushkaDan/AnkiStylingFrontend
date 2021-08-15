@@ -1,20 +1,4 @@
-@import 'languages/html';
-@import 'languages/css';
-@import 'languages/javascript';
-@import 'languages/python';
-@import 'languages/bash';
-@import 'languages/SQL';
-@import 'languages/MongoDB';
-@import 'languages/json';
-@import 'languages/с';
-@import 'languages/с#';
-@import 'languages/graphql';
-@import 'languages/java';
-@import 'languages/dart';
-@import 'languages/rust';
-//@import 'languages/swift';
-//@import 'languages/elm';
-//@import 'languages/vim';
+@import 'languages/tokenClassnames';
 
 @import 'languages/html';
 @import 'languages/css';
@@ -24,8 +8,8 @@
 @import 'languages/SQL';
 @import 'languages/MongoDB';
 @import 'languages/json';
-@import 'languages/с';
-@import 'languages/с#';
+@import 'languages/c';
+@import 'languages/c#';
 @import 'languages/graphql';
 @import 'languages/java';
 @import 'languages/dart';
@@ -43,14 +27,14 @@ li {
   text-align: left;
 }
 
-.code_container pre {
+.#{$code-container} pre {
   background: #2F2F31;
   overflow-wrap: normal;
   padding-left: 10px;
   line-height: 1.65;
 }
 
-.code_container pre, .code_container code {
+.#{$code-container} pre, .#{$code-container} code {
   font-family: FiraCode, monospace;
   font-size: 1.125rem;
   overflow-wrap: normal;
@@ -68,21 +52,14 @@ img {
   margin: 5px auto;
 }
 
-div.comment code {
+.#{$user-comment} code {
   background: rgba(135, 131, 120, .15);
   color: #EB5757;
   border-radius: 3px;
   padding: .2em .3em;
 }
 
-//#front:not(.front_hidden) div.comment code, #back div.comment code {
-//  background: rgba(135, 131, 120, .15);
-//  color: #EB5757;
-//  border-radius: 3px;
-//  padding: .2em .3em;
-//}
-
-div.comment {
+.#{$user-comment} {
   width: calc(100% - 1em);
   border: 2px solid #000;
   border-radius: 6px;
@@ -100,7 +77,7 @@ div.comment {
   }
 }
 
-.code_container {
+.#{$code-container} {
   text-align: left;
 
   & i {

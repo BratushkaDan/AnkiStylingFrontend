@@ -1,4 +1,4 @@
-.#{$code-container}.bash {
+.#{$code-container}.cs {
   .#{$token} {
     &.#{$comment},
     &.#{$block-comment},
@@ -18,19 +18,24 @@
       color: #e2777a;
     }
 
+    &.#{$function} {
+      color: #FFC66D;
+    }
+
     &.#{$function-name} {
       color: #6196cc;
     }
 
-    &.#{$function} {
-      color: #f08d49;
+    &.#{$number} {
+      color: #6897BB;
     }
 
-    &.#{$number},
     &.#{$property},
     &.#{$class-name},
     &.#{$constant},
-    &.#{$symbol} {
+    &.#{$symbol},
+    &.#{$directive-hash},
+    &.#{$directive}.#{$keyword} {
       color: #f8c555;
     }
 
@@ -38,13 +43,20 @@
     &.#{$selector},
     &.#{$important},
     &.#{$atrule},
+    &.#{$expression} {
+      color: #C679DD;
+    }
+
     &.#{$keyword},
     &.#{$builtin} {
-      color: #cc99cd;
+      color: #FF9F38;
     }
 
     &.#{$string},
-    &.#{$char} {
+    &.#{$attr-value},
+    &.#{$char},
+    &.#{$regex},
+    &.#{$variable} {
       color: #98C379;
     }
 
@@ -52,15 +64,15 @@
       color: #9ACBD9;
     }
 
-    &.#{$attr-name} {
-      color: #E5C17C;
-    }
     &.#{$operator},
     &.#{$entity},
     &.#{$url} {
       color: #67cdcc;
     }
 
+    &.#{$attr-name} {
+      color: #E5C17C;
+    }
   }
   span {
     .#{$token} {
