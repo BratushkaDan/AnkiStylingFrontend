@@ -27,46 +27,46 @@ import 'prismjs/components/prism-c.min.js';
 import 'prismjs/components/prism-csharp.min.js';
 
 
-async function highlight(language, code, cssClassnameAlias = language) {
+function highlight(language, code, cssClassnameAlias = language) {
   const html = Prism.highlight(code, Prism.languages[language], language)
   return `<div class="cc ${cssClassnameAlias}"><pre>${html}</pre></div>`;
 }
 
-async function highlightRegex(...args) {
-  let html = await highlight(...args);
+function highlightRegex(...args) {
+  let html = highlight(...args);
   return processRegex(html);
 }
 
-export async function comment(text) {
+export function comment(text) {
   text = marked(text);
   return `<div class="com">${text}</div>`
 }
 
-export async function html(code) {
+export function html(code) {
   return highlight('html', code);
 }
 
-export async function css(code) {
+export function css(code) {
   return highlight('css', code);
 }
 
-export async function javascript(code) {
+export function javascript(code) {
   return highlightRegex('javascript', code, 'js');
 }
 
-export async function react(code) {
+export function react(code) {
   return highlightRegex('jsx', code, 'js');
 }
 
-export async function typescript(code) {
+export function typescript(code) {
   return highlight('typescript', code, 'js')
 }
 
-export async function scss(code) {
+export function scss(code) {
   return highlight('scss', code, 'css')
 }
 
-export async function less(code) {
+export function less(code) {
   return highlight('less', code, 'css');
 }
 
@@ -75,59 +75,59 @@ export async function less(code) {
 //   return highlight('sass', code, 'css');
 // }
 
-export async function graphql(code) {
+export function graphql(code) {
   return highlight('graphql', code, 'gql');
 }
 
-export async function json(code) {
+export function json(code) {
   return highlight('json', code);
 }
 
-export async function python(code) {
+export function python(code) {
   return highlight('python', code, 'py')
 }
 
-export async function rust(code) {
-  return highlight('rust', code).then(code => code.replaceAll('::', '꞉꞉'));
+export function rust(code) {
+  return highlight('rust', code).replaceAll('::', '꞉꞉');
 }
 
-export async function cs(code) {
+export function cs(code) {
   return highlight('cs', code);
 }
 
-export async function mongo(code) {
+export function mongo(code) {
   return highlight('mongodb', code, 'mongo');
 }
 
-export async function c(code) {
+export function c(code) {
   return highlight('c', code);
 }
 
-export async function cpp(code) {
-  return highlight('cpp', code, 'c').then(code => code.replaceAll('::', '꞉꞉'));
+export function cpp(code) {
+  return highlight('cpp', code, 'c').replaceAll('::', '꞉꞉');
 }
 
-export async function cmake(code) {
+export function cmake(code) {
   return highlight('cmake', code, 'c');
 }
 
-export async function kotlin(code) {
+export function kotlin(code) {
   return highlight('kotlin', code, 'java');
 }
 
-export async function sql(code) {
+export function sql(code) {
   return highlight('sql', code);
 }
 
-export async function dart(code) {
+export function dart(code) {
   return highlight('dart', code);
 }
 
-export async function java(code) {
+export function java(code) {
   return highlight('java', code);
 }
 
-export async function bash(code) {
+export function bash(code) {
   return highlight('bash', code);
 }
 

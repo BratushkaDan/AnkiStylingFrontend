@@ -48,26 +48,26 @@ export default fieldSlice.reducer;
 
 /* addField-thunk consuming highlightSyntax Promise API */
 export function addField({type, language = null, side}) {
-  return async function (dispatch) {
+  return function (dispatch) {
     if (type === 'comment') language = 'comment';
-    let highlightedMarkup = await highlightSyntax[language]('');
+    let highlightedMarkup = highlightSyntax[language]('');
     return dispatch(addFieldAction({type, language, side, highlightedMarkup}));
   }
 }
 
 /* modifyField-thunk consuming highlightSyntax Promise API */
 export function modifyField({id, value}) {
-  return async function (dispatch, getState) {
+  return function (dispatch, getState) {
     let fieldLanguage = getState().inputFields.find(field => field.id === id).language;
-    let highlightedMarkup = await highlightSyntax[fieldLanguage](value);
+    let highlightedMarkup = highlightSyntax[fieldLanguage](value);
     return dispatch(modifyFieldAction({id, value, highlightedMarkup}));
   }
 }
 
 /* wipeFields-thunk consuming highlightSyntax Promise API */
 export function wipeFields() {
-  return async function (dispatch) {
-    let commentField = {type: 'comment', language: 'comment', value: '', side: 'front', highlightedMarkup: await highlightSyntax['comment'](''), id: nanoid()};
+  return function (dispatch) {
+    let commentField = {type: 'comment', language: 'comment', value: '', side: 'front', highlightedMarkup: highlightSyntax['comment'](''), id: nanoid()};
     return dispatch(wipeFieldsAction([commentField]));
   }
 }
