@@ -1,18 +1,22 @@
 .form-leftColumn {
-  &-comment {
-    --hue: 170;
+  &-comment, &-code {
     --border-color: hsl(var(--hue), 20%, 30%);
     --background-color: hsl(var(--hue), 20%, 80%);
     --placeholder-color: hsl(var(--hue), 20%, 20%);
     --focus-outline-color: hsl(var(--hue), 20%, 30%);
   }
-
-  &-code {
+  &-comment[data-side="front"] {
+    --hue: 170;
+  }
+  &-code[data-side="front"] {
     --hue: 110;
-    --border-color: hsl(var(--hue), 20%, 30%);
-    --background-color: hsl(var(--hue), 20%, 80%);
-    --placeholder-color: hsl(var(--hue), 20%, 20%);
-    --focus-outline-color: hsl(var(--hue), 20%, 30%);
+  }
+
+  &-comment[data-side="back"] {
+    --hue: 110;
+  }
+  &-code[data-side="back"] {
+    --hue: 80;
   }
 
   &Textarea {

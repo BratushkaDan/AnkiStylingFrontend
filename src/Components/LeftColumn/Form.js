@@ -8,7 +8,6 @@ import "./Form.scss";
 
 function Form(props) {
   const [fieldHeight, setFieldHeight] = React.useState('131px');
-  const {value} = props.value;
   const dispatch = useDispatch();
   const textAreaRef = React.useRef(null);
 
@@ -22,7 +21,7 @@ function Form(props) {
     e.stopPropagation();
   }
 
-  let hint = props.type === 'comment' ? 'Comment' : `Code (${props.language})`;
+  let hint = props.type === 'comment' ? `Comment` : `Code (${props.language})`;
 
   function handleMoveFieldUp() {
     dispatch(moveFieldUp(props.id))
@@ -36,7 +35,7 @@ function Form(props) {
     dispatch(removeField(props.id))
   }
 
-  return <form className={`form-leftColumn form-leftColumn-${props.type}`}>
+  return <form className={`form-leftColumn form-leftColumn-${props.type}`} data-side={props.side}>
     <div className="form-leftColumn__caption">
       <span className="hint">{hint}:</span>
       <span className="controlsContainer">
@@ -48,11 +47,12 @@ function Form(props) {
     <textarea
       className="form-leftColumnTextarea"
       ref={textAreaRef}
-      value={value}
+      value={props.value}
       onKeyDown={preventKeydownBubbling}
       onChange={handleTextarea}
       style={{height: fieldHeight}}
-      placeholder={hint}/>
+      placeholder={hint}
+    />
   </form>
 }
 

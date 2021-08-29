@@ -5,6 +5,7 @@ import {useSelector, useDispatch} from "react-redux";
 import {useShortcut} from "../../../hooks/hooks";
 
 export default function AddSection() {
+  const cardSide = useSelector(state => state.cardSide);
   const language = useSelector(state => state.language);
   const dispatch = useDispatch();
 
@@ -12,11 +13,11 @@ export default function AddSection() {
   useShortcut(handleAddSnippet, ['alt', 't'], [language]);
 
   function handleAddComment() {
-    dispatch(addField({type: 'comment'}))
+    dispatch(addField({type: 'comment', side: cardSide}))
   }
 
   function handleAddSnippet() {
-    if (language !== '') dispatch(addField({type: 'code', language}));
+    if (language !== '') dispatch(addField({type: 'code', language, side: cardSide}));
   }
 
   return <div className="addSection">

@@ -8,9 +8,12 @@ const fieldSlice = createSlice({
   reducers: {
     addField: {
       reducer: (state, action) => {
-        state.push(action.payload);
+        let backFieldIndex = state.findIndex(field => field.side === 'back');
+
+        if (action.payload.side === 'back' || !~backFieldIndex) state.push(action.payload);
+        else state.push(action.payload, ...state.splice(backFieldIndex, Infinity));
       },
-      prepare: ({type, language, highlightedMarkup}) => ({payload: {type, language, value: '', highlightedMarkup, id: nanoid()}})
+      prepare: ({type, language, side, highlightedMarkup}) => ({payload: {type, language, side, value: '', highlightedMarkup, id: nanoid()}})
     },
     modifyField: (state, action) => state.map(field => {
       if (field.id !== action.payload.id) return field;
@@ -18,14 +21,14 @@ const fieldSlice = createSlice({
     }),
     moveFieldUp: (state, {payload: id}) => {
       let field = state.findIndex(field => field.id === id);
-      if (field > 0) {
+      if (field > 0 && state[field].side === state[field - 1].side) {
         [state[field - 1], state[field]] = [state[field], state[field - 1]]
       }
       return state;
     },
     moveFieldDown: (state, {payload: id}) => {
       let field = state.findIndex(field => field.id === id);
-      if (field !== -1 && (state.length - 1) !== field) {
+      if (field !== -1  && (state.length - 1) !== field && state[field].side === state[field + 1].side) {
         [state[field], state[field + 1]] = [state[field + 1], state[field]]
       }
       return state;
@@ -44,11 +47,11 @@ export const {removeField, moveFieldUp, moveFieldDown} = fieldSlice.actions;
 export default fieldSlice.reducer;
 
 /* addField-thunk consuming highlightSyntax Promise API */
-export function addField({type, language = null}) {
+export function addField({type, language = null, side}) {
   return async function (dispatch) {
     if (type === 'comment') language = 'comment';
     let highlightedMarkup = await highlightSyntax[language]('');
-    return dispatch(addFieldAction({type, language, highlightedMarkup}));
+    return dispatch(addFieldAction({type, language, side, highlightedMarkup}));
   }
 }
 
@@ -64,7 +67,7 @@ export function modifyField({id, value}) {
 /* wipeFields-thunk consuming highlightSyntax Promise API */
 export function wipeFields() {
   return async function (dispatch) {
-    let commentField = {type: 'comment', language: 'comment', value: '', highlightedMarkup: await highlightSyntax['comment'](''), id: nanoid()};
+    let commentField = {type: 'comment', language: 'comment', value: '', side: 'front', highlightedMarkup: await highlightSyntax['comment'](''), id: nanoid()};
     return dispatch(wipeFieldsAction([commentField]));
   }
 }
