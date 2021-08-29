@@ -5,6 +5,28 @@ import marked from "marked";
 
 import './mapPrismDefaultClassnames.js';
 
+// LanguageHightlightModules
+import 'prismjs/components/prism-jsx.min.js';
+import 'prismjs/components/prism-typescript.min.js';
+import 'prismjs/components/prism-scss.min.js';
+import 'prismjs/components/prism-less.min.js';
+import 'prismjs/components/prism-graphql.min.js';
+import 'prismjs/components/prism-json.min.js';
+import 'prismjs/components/prism-python.min.js';
+import 'prismjs/components/prism-rust.min.js';
+import 'prismjs/components/prism-java.min.js';
+import 'prismjs/components/prism-bash.min.js';
+import 'prismjs/components/prism-dart.min.js';
+import 'prismjs/components/prism-sql.min.js';
+import 'prismjs/components/prism-kotlin.min.js';
+import 'prismjs/components/prism-cmake.min.js';
+import 'prismjs/components/prism-c.min.js';
+import 'prismjs/components/prism-cpp.min.js';
+import 'prismjs/components/prism-mongodb.min.js';
+import 'prismjs/components/prism-c.min.js';
+import 'prismjs/components/prism-csharp.min.js';
+
+
 async function highlight(language, code, cssClassnameAlias = language) {
   const html = Prism.highlight(code, Prism.languages[language], language)
   return `<div class="cc ${cssClassnameAlias}"><pre>${html}</pre></div>`;
@@ -33,22 +55,18 @@ export async function javascript(code) {
 }
 
 export async function react(code) {
-  await import('prismjs/components/prism-jsx.min.js');
   return highlightRegex('jsx', code, 'js');
 }
 
 export async function typescript(code) {
-  await import('prismjs/components/prism-typescript.min.js');
   return highlight('typescript', code, 'js')
 }
 
 export async function scss(code) {
-  await import('prismjs/components/prism-scss.min.js');
   return highlight('scss', code, 'css')
 }
 
 export async function less(code) {
-  await import('prismjs/components/prism-less.min.js');
   return highlight('less', code, 'css');
 }
 
@@ -58,73 +76,58 @@ export async function less(code) {
 // }
 
 export async function graphql(code) {
-  await import('prismjs/components/prism-graphql.min.js');
   return highlight('graphql', code, 'gql');
 }
 
 export async function json(code) {
-  await import('prismjs/components/prism-json.min.js');
   return highlight('json', code);
 }
 
 export async function python(code) {
-  await import('prismjs/components/prism-python.min.js');
   return highlight('python', code, 'py')
 }
 
 export async function rust(code) {
-  await import('prismjs/components/prism-rust.min.js');
-
   return highlight('rust', code).then(code => code.replaceAll('::', '꞉꞉'));
 }
 
 export async function cs(code) {
-  await import('prismjs/components/prism-csharp.min.js');
   return highlight('cs', code);
 }
 
 export async function mongo(code) {
-  await import('prismjs/components/prism-mongodb.min.js');
   return highlight('mongodb', code, 'mongo');
 }
 
 export async function c(code) {
-  await import('prismjs/components/prism-c.min.js')
   return highlight('c', code);
 }
 
 export async function cpp(code) {
-  await Promise.all([import('prismjs/components/prism-c.min.js'), import('prismjs/components/prism-cpp.min.js')]);
   return highlight('cpp', code, 'c').then(code => code.replaceAll('::', '꞉꞉'));
 }
 
 export async function cmake(code) {
-  await import('prismjs/components/prism-cmake.min.js');
   return highlight('cmake', code, 'c');
 }
 
 export async function kotlin(code) {
-  await import('prismjs/components/prism-kotlin.min.js');
   return highlight('kotlin', code, 'java');
 }
 
 export async function sql(code) {
-  await import('prismjs/components/prism-sql.min.js');
   return highlight('sql', code);
 }
 
 export async function dart(code) {
-  await import('prismjs/components/prism-dart.min.js');
   return highlight('dart', code);
 }
 
 export async function java(code) {
-  await import('prismjs/components/prism-java.min.js');
   return highlight('java', code);
 }
 
 export async function bash(code) {
-  await import('prismjs/components/prism-bash.min.js');
   return highlight('bash', code);
 }
 

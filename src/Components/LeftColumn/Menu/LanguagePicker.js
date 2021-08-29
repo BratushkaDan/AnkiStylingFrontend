@@ -1,4 +1,4 @@
-import { useLayoutEffect } from 'react';
+import { useEffect, useLayoutEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import './LanguagePicker.scss';
@@ -8,6 +8,11 @@ import { pickLanguage } from "../../../slices/Language.slice";
 export default function LanguagePicker() {
   const language = useSelector(state => state.language);
   const dispatch = useDispatch();
+
+  /* preload prism modules to prevent freeze for the first time */
+  useEffect(() => {
+    import('../../../modules/anki/highlight');
+  }, [])
 
   useLayoutEffect(() => {
     let pl = window.localStorage.getItem('language');
