@@ -16,6 +16,20 @@ const fieldSlice = createSlice({
       if (field.id !== action.payload.id) return field;
       return {...field, value: action.payload.value, highlightedMarkup: action.payload.highlightedMarkup}
     }),
+    moveFieldUp: (state, {payload: id}) => {
+      let field = state.findIndex(field => field.id === id);
+      if (field > 0) {
+        [state[field - 1], state[field]] = [state[field], state[field - 1]]
+      }
+      return state;
+    },
+    moveFieldDown: (state, {payload: id}) => {
+      let field = state.findIndex(field => field.id === id);
+      if (field !== -1 && (state.length - 1) !== field) {
+        [state[field], state[field + 1]] = [state[field + 1], state[field]]
+      }
+      return state;
+    },
     removeField: (state, action) => state.filter(field => field.id !== action.payload),
     wipeFields: (state, action) => action.payload
   }
@@ -24,9 +38,9 @@ const fieldSlice = createSlice({
 const {
   addField: addFieldAction,
   modifyField: modifyFieldAction,
-  wipeFields: wipeFieldsAction
+  wipeFields: wipeFieldsAction,
 } = fieldSlice.actions;
-export const {removeField} = fieldSlice.actions;
+export const {removeField, moveFieldUp, moveFieldDown} = fieldSlice.actions;
 export default fieldSlice.reducer;
 
 /* addField-thunk consuming highlightSyntax Promise API */
