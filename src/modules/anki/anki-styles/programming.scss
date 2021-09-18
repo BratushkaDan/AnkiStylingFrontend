@@ -1,22 +1,14 @@
-@import 'languages/tokenClassnames';
+@import 'tokenClassnames';
+@import 'code';
 
-@import 'languages/html';
-@import 'languages/css';
-@import 'languages/javascript';
-@import 'languages/python';
-@import 'languages/bash';
-@import 'languages/SQL';
-@import 'languages/MongoDB';
-@import 'languages/json';
-@import 'languages/c';
-@import 'languages/c#';
-@import 'languages/graphql';
-@import 'languages/java';
-@import 'languages/dart';
-@import 'languages/rust';
-//@import 'languages/swift';
-//@import 'languages/elm';
-//@import 'languages/vim';
+@import 'resources.scss';
+
+$user-comment-text-color: #f5f6f7;
+$user-comment-background-color: #18191a;
+$user-comment-border-color: #000;
+$user-comment-italic-color: #FFC800; // rgb(166, 226, 46)
+$user-comment-code-color: #EB5757;
+$user-comment-code-background: rgba(135, 131, 120, .15);
 
 h1, h2, h3, h4, h5, h6 {
   margin-top: .5em;
@@ -29,8 +21,7 @@ li {
 }
 
 .#{$code-container} pre {
-  background: #2F2F31;
-  overflow-wrap: normal;
+  //background: #2F2F31;
   padding-left: 10px;
   line-height: 1.65;
 }
@@ -53,28 +44,28 @@ img {
   margin: 5px auto;
 }
 
-.#{$user-comment} code {
-  background: rgba(135, 131, 120, .15);
-  color: #EB5757;
-  border-radius: 3px;
-  padding: .2em .3em;
-}
-
 .#{$user-comment} {
   width: calc(100% - 1em);
-  border: 2px solid #000;
+  border: 2px solid $user-comment-border-color;
   border-radius: 6px;
-  background: #18191A;
+  background: $user-comment-background-color;
   padding: 5px;
   box-sizing: border-box;
   text-align: center;
   margin: 5px .5em;
-  color: #f5f6f7;
+  color: $user-comment-text-color;
   letter-spacing: .8px;
 
   & i, & em {
     font-style: normal;
-    color: rgb(166, 226, 46);
+    color: $user-comment-italic-color;
+  }
+
+  & code {
+    background: $user-comment-code-background;
+    color: $user-comment-code-color;
+    border-radius: 3px;
+    padding: .2em .3em;
   }
 }
 

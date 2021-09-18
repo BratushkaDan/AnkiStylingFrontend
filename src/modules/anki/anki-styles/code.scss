@@ -1,0 +1,151 @@
+@import 'tokenClassnames';
+/*
+  @include programming_language(bash) {
+    // ampersand before the class name is required, whereby style receives .token classname in addition to its class name (foobar)
+    &.foobar {
+      background: red;
+    }
+  }
+*/
+
+@mixin programming_language(
+  $lang,
+  $variable-color: #e06c75,
+  $function-name-color: #6196cc,
+  $function-color: #61AEEF,
+  $number-color: #f8c555,
+  $property-color: #f8c555,
+  $builtin-color: #C679DD,
+  $string-color: #98C379,
+  $keyword-color: #ff9f38
+) {
+  .#{$token} {
+    &.#{$comment},
+    &.#{$block-comment},
+    &.#{$prolog},
+    &.#{$doctype},
+    &.#{$cdata} {
+      color: #999;
+    }
+
+    &.#{$tag},
+    &.#{$namespace},
+    &.#{$deleted} {
+      color: #e2777a;
+    }
+
+    &.#{$regex-delimiter},
+    &.#{$punctuation} {
+      color: rgb(136, 198, 190);
+    }
+
+    &.#{$parameter} {
+      color: #9ACBD9;
+    }
+
+    &.#{$attr-name} {
+      color: #E5C17C;
+    }
+
+    &.#{$operator},
+    &.#{$entity},
+    &.#{$url} {
+      color: #67cdcc;
+    }
+  }
+
+  &.#{$lang} {
+    .#{$token} {
+      &.#{$variable} {
+        color: $variable-color;
+      }
+
+      &.#{$function} {
+        color: $function-color;
+      }
+
+      &.#{$number} {
+        color: $number-color;
+      }
+
+      &.#{$property},
+      &.#{$class-name},
+      &.#{$constant},
+      &.#{$symbol} {
+        color: $property-color;
+      }
+
+      &.#{$boolean},
+      &.#{$selector},
+      &.#{$important},
+      &.#{$atrule},
+      &.#{$keyword} {
+        color: $builtin-color;
+      }
+
+
+      &.#{$string},
+      &.#{$char},
+      &.#{$attr-value},
+      &.#{$regex},
+      &.#{$variable},
+      &.#{$range} {
+        color: $string-color;
+      }
+
+      @if $lang == rust {
+        &.#{$function-definition} {
+          color: $function-name-color;
+        }
+      }
+
+      @if $lang == c or $lang == cs or $lang == java or $lang == rust {
+        &.#{$directive-hash},
+        &.#{$directive}.#{$keyword} {
+          color: $property-color;
+        }
+
+        &.#{$expression} {
+          color: $builtin-color;
+        }
+
+        &.#{$keyword},
+        &.#{$builtin} {
+          color: $keyword-color;
+        }
+      }
+
+      @if $lang == js {
+        &.#{$regex-flags} {
+          color: $number-color;
+        }
+      }
+
+      &.#{$builtin} {
+        @if $lang == swift {
+          color: $number-color;
+        } @else {
+          color: $builtin-color;
+        }
+      }
+      @content;
+    }
+  }
+}
+
+.#{$code-container} {
+  @include programming_language(js);
+  @include programming_language(bash, $builtin-color: #cc99cd);
+  @include programming_language(html);
+  @include programming_language(sql);
+  @include programming_language(mongo, $number-color: #6897BB);
+  @include programming_language(python);
+  @include programming_language(graphql);
+  @include programming_language(json);
+  @include programming_language(css);
+  @include programming_language(swift, $function-color: #f08d49);
+  @include programming_language(java, $property-color: #fed5af, $keyword-color: #ff9f38, $variable-color: #98c379);
+  @include programming_language(c, $number-color: #6897BB);
+  @include programming_language(cs, $number-color: #6897BB);
+  @include programming_language(rust, $function-name-color: #FFC66D);
+}

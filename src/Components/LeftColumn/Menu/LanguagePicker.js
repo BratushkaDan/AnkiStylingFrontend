@@ -27,6 +27,7 @@ export default function LanguagePicker() {
   return <div className="languagePicker">
     <select value={language} onChange={handleLanguagePick}>
       <option value=""/>
+      <option value="plaincode">Plain Code</option>
       <option value="html">HTML</option>
       <option value="css">CSS</option>
       <option value="scss">SCSS</option>
@@ -44,8 +45,6 @@ export default function LanguagePicker() {
       <option value="cs">C#</option>
       <option value="mongo">MongoDB</option>
       <option value="sql">SQL</option>
-      <option value="dart">Dart</option>
-      <option value="bash">Bash (Terminal)</option>
       <option value="java">Java</option>
       <option value="kotlin">Kotlin</option>
     </select>
