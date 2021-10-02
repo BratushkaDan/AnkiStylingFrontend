@@ -6,16 +6,20 @@
       background: red;
     }
   }
+
 */
 
 @mixin programming_language(
   $lang,
+  $punctuation-color: rgb(136, 198, 190),
   $variable-color: #e06c75,
+  $parameter-color: #9ACBD9,
   $function-name-color: #6196cc,
   $function-color: #61AEEF,
   $number-color: #f8c555,
   $property-color: #f8c555,
   $builtin-color: #C679DD,
+  $operator-color: #67cdcc,
   $string-color: #98C379,
   $keyword-color: #ff9f38
 ) {
@@ -34,20 +38,10 @@
       color: #e2777a;
     }
 
-    &.#{$regex-delimiter},
-    &.#{$punctuation} {
-      color: rgb(136, 198, 190);
-    }
-
-    &.#{$parameter} {
-      color: #9ACBD9;
-    }
-
     &.#{$attr-name} {
       color: #E5C17C;
     }
 
-    &.#{$operator},
     &.#{$entity},
     &.#{$url} {
       color: #67cdcc;
@@ -55,9 +49,21 @@
   }
 
   &.#{$lang} {
+    @if $lang == c or $lang == rust {
+      color: lighten(#B5B6E3, 10%);
+    }
+
     .#{$token} {
       &.#{$variable} {
         color: $variable-color;
+      }
+
+      &.#{$operator} {
+        @if $lang == c or $lang == rust {
+          color: inherit;
+        } @else {
+          color: $operator-color;
+        }
       }
 
       &.#{$function} {
@@ -66,6 +72,15 @@
 
       &.#{$number} {
         color: $number-color;
+      }
+
+      &.#{$regex-delimiter},
+      &.#{$punctuation} {
+        color: $punctuation-color;
+      }
+  
+      &.#{$parameter} {
+        color: $parameter-color;
       }
 
       &.#{$property},
@@ -144,8 +159,21 @@
   @include programming_language(json);
   @include programming_language(css);
   @include programming_language(swift, $function-color: #f08d49);
-  @include programming_language(java, $property-color: #fed5af, $keyword-color: #ff9f38, $variable-color: #98c379);
-  @include programming_language(c, $number-color: #6897BB);
+  @include programming_language(
+    java,
+    $property-color: #fed5af,
+    $keyword-color: #ff9f38,
+    $variable-color: #98c379
+  );
+  @include programming_language(
+    c,
+    $number-color: #6897BB,
+    $function-color: darken(#FFC66D, 10%),
+    $punctuation-color: inherit,
+    $builtin-color: darken(#CC7832, 10%),
+    $parameter-color: #A9B7C6,
+    $string-color: #6A8759
+  );
   @include programming_language(cs, $number-color: #6897BB);
   @include programming_language(rust, $function-name-color: #FFC66D);
 }
