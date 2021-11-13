@@ -1,8 +1,12 @@
 import './AddSection.scss';
 import {addField} from "../../../slices/Field.slice";
 import {useSelector, useDispatch} from "react-redux";
+import CodeIcon from '@mui/icons-material/Code';
+import CommentIcon from '@mui/icons-material/Comment';
 
-import {useShortcut} from "../../../hooks/hooks";
+import {useShortcut} from "../../../hooks";
+
+const addIconStyle = { width: 24, height: 24 };
 
 export default function AddSection() {
   const cardSide = useSelector(state => state.cardSide);
@@ -21,7 +25,11 @@ export default function AddSection() {
   }
 
   return <div className="addSection">
-      <span onClick={handleAddComment}>💬</span>
-      <span onClick={handleAddSnippet}>👨‍💻</span>
+      <span title="Add comment">
+        <CommentIcon style={addIconStyle} onClick={handleAddComment} />
+      </span>
+      <span title="Add code snippet">
+        <CodeIcon style={addIconStyle} onClick={handleAddSnippet} />  
+      </span>
   </div>
 }

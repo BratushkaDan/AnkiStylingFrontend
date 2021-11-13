@@ -1,11 +1,12 @@
 import * as React from 'react';
 import {useSelector, useDispatch} from 'react-redux';
+import { Button, Switch } from '@mui/material';
 
 import './RendererField.scss';
 
 import MarkupContainer from "./MarkupContainer";
 
-import {useTopWindowOffset, useShortcut} from "../../hooks/hooks";
+import {useTopWindowOffset, useShortcut} from "../../hooks";
 import {wipeFields} from "../../slices/Field.slice";
 
 export default function RendererField() {
@@ -50,12 +51,23 @@ export default function RendererField() {
     <p className="btnContainer">
       <label>
         Show Both Card Sides:
-        <input type="checkbox" checked={isShowBoth} onChange={() => setIsShowBoth(prevState => !prevState)}/>
+        <Switch
+          checked={isShowBoth}
+          onChange={() => setIsShowBoth(prevState => !prevState)}
+        />
       </label>
-      <button onClick={copyFrontToClipboard}>Copy Front{/* (ctrl+shift+u)*/}</button>
-      <button onClick={copyBackToClipboard}>Copy Back{/* (ctrl+shift+u)*/}</button>
-      <button onClick={copyToClipboard}>Copy Both{/* (ctrl+shift+u)*/}</button>
-      <button className="clearBtn" onClick={handleClear}>Clear{/* (ctrl + shift + h)*/}</button>
+      <Button variant="outlined" size="small" onClick={copyFrontToClipboard}>
+        Copy Front{/* (ctrl+shift+u)*/}
+      </Button>
+      <Button variant="outlined" size="small" onClick={copyBackToClipboard}>
+        Copy Back{/* (ctrl+shift+u)*/}
+      </Button>
+      <Button variant="outlined" size="small" onClick={copyBackToClipboard}>
+        Copy Both{/* (ctrl+shift+u)*/}
+      </Button>
+      <Button variant="outlined" size="small" color="error" onClick={handleClear}>
+        Clear{/* (ctrl + shift + h)*/}
+      </Button>
     </p>
     <div className="rendererField" ref={rendererFieldRef} style={{height: `calc(100vh - ${offset})`}}>
       {renderMarkupContainers(inputFields)}

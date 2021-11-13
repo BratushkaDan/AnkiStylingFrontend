@@ -1,0 +1,23 @@
+export const languageSelectOptions = {
+    '': '',
+    'plaincode': 'Plain Code',
+    'html': 'HTML',
+    'css': 'css',
+    'react': 'ReactJS',
+    'javascript': 'JavaScript',
+    'typescript': 'TypeScript',
+    'json': 'JSON',
+    'python': 'Python',
+    'cpp': 'C++',
+    'c': 'C',
+    'rust': 'Rust',
+    'sql': 'SQL',
+    'mongo': 'MongoDB',
+    'java': 'Java',
+    'kotlin': 'Kotlin',
+    'cs': 'C#',
+    'graphql': 'GraphQL',
+    'cmake': 'CMake',
+    'scss': 'SCSS',
+    'less': 'Less'
+  }
