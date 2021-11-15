@@ -154,7 +154,7 @@
   @include programming_language(html);
   @include programming_language(sql);
   @include programming_language(mongo, $number-color: #6897BB);
-  @include programming_language(python);
+  @include programming_language(py);
   @include programming_language(graphql);
   @include programming_language(json);
   @include programming_language(css);

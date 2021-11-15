@@ -7,10 +7,6 @@
     &:last-child {
       margin-left: 1em;
       width: 20%;
-      transition: background-color .3s;
-      &:hover {
-        background-color: hsl(360, 70%, 68%);
-      }
     }
   }
 }

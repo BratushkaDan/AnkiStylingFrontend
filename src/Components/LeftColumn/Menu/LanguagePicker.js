@@ -1,13 +1,17 @@
-import { useEffect, useLayoutEffect } from 'react';
+import { useEffect, useLayoutEffect, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
+import { Select, MenuItem } from '@mui/material';
 import './LanguagePicker.scss';
-
+import { languageSelectOptions } from '../../../common/languageSelectOptions.ts';
 import { pickLanguage } from "../../../slices/Language.slice";
 
 export default function LanguagePicker() {
   const language = useSelector(state => state.language);
   const dispatch = useDispatch();
+
+  const mapSelectOptions = useCallback(() => {
+    return Object.keys(languageSelectOptions).map(key => <MenuItem value={key} key={key}>{languageSelectOptions[key]}</MenuItem>)
+  }, []);
 
   /* preload prism modules to prevent freeze for the first time */
   useEffect(() => {
@@ -20,33 +24,23 @@ export default function LanguagePicker() {
   }, [])
 
   function handleLanguagePick(e) {
-    dispatch(pickLanguage(e.currentTarget.value))
-    window.localStorage.setItem('language', e.currentTarget.value);
+    dispatch(pickLanguage(e.target.value))
+    window.localStorage.setItem('language', e.target.value);
   }
 
   return <div className="languagePicker">
-    <select value={language} onChange={handleLanguagePick}>
-      <option value=""/>
-      <option value="plaincode">Plain Code</option>
-      <option value="html">HTML</option>
-      <option value="css">CSS</option>
-      <option value="scss">SCSS</option>
-      <option value="react">ReactJS</option>
-      <option value="less">Less</option>
-      <option value="javascript">JavaScript</option>
-      <option value="typescript">TypeScript</option>
-      <option value="json">JSON</option>
-      <option value="graphql">GraphQL</option>
-      <option value="python">Python</option>
-      <option value="rust">Rust</option>
-      <option value="c">C</option>
-      <option value="cpp">C++</option>
-      <option value="cmake">CMake</option>
-      <option value="cs">C#</option>
-      <option value="mongo">MongoDB</option>
-      <option value="sql">SQL</option>
-      <option value="java">Java</option>
-      <option value="kotlin">Kotlin</option>
-    </select>
+    <Select
+      id="programming-language-select"
+      value={language}
+      onChange={handleLanguagePick}
+      style={{
+        color: '#fff',
+        border: '1px solid #fff',
+        width: '150px',
+        height: '2em'
+      }}
+    >
+      {mapSelectOptions()}
+    </Select>
   </div>
 }

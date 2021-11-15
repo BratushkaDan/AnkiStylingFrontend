@@ -3,9 +3,9 @@ import {useDispatch, useSelector} from "react-redux";
 
 import './FormField.scss';
 
-import Form from "./Form";
+import {Form} from "./Form";
 import {addField} from "../../slices/Field.slice";
-import {useTopWindowOffset} from "../../hooks/hooks";
+import {useTopWindowOffset} from "../../hooks";
 
 
 export default function FormField() {

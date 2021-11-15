@@ -46,8 +46,15 @@
     justify-content: space-between;
     //flex-flow: nowrap row-reverse;
 
-    .controlsContainer > span {
-      cursor: pointer
+    .controlsContainer > * {
+      cursor: pointer;
+    }
+  }
+
+  .hint {
+    cursor: pointer;
+    &::selection {
+      background: transparent;
     }
   }
 }

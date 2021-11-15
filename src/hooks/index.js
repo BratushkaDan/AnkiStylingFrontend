@@ -1,6 +1,6 @@
 import {useState, useEffect, useLayoutEffect} from "react";
 
-export function useTopWindowOffset(initialState, ref) {
+function useTopWindowOffset(initialState, ref) {
   const [offset, setOffset] = useState(initialState);
 
   useLayoutEffect(() => {
@@ -10,7 +10,7 @@ export function useTopWindowOffset(initialState, ref) {
   return offset;
 }
 
-export function useShortcut(callback, shortcutKeys, deps) {
+function useShortcut(callback, shortcutKeys, deps) {
   let keysSet = new Set();
 
   let timeout = null;
@@ -33,3 +33,5 @@ export function useShortcut(callback, shortcutKeys, deps) {
     return () => window.removeEventListener('keydown', handler);
   }, deps);
 }
+
+export { useTopWindowOffset, useShortcut };
