@@ -21,6 +21,8 @@
 
   import {processRegex} from './utils';
   import './mapPrismDefaultClassnames.js';
+  import { enhanceComment } from './utils/enhanceComment';
+  import { alignLeftCommentEnhancer, wrapComment } from './utils/commentEnhancers';
 
   function highlight(language, code, cssClassnameAlias = language) {
     const html = Prism.highlight(code, Prism.languages[language], language);
@@ -32,7 +34,9 @@
     return processRegex(html);
   }
 
-  export const comment = text => `<div class="com">${marked(text)}</div>`;
+  
+
+  export const comment = text => enhanceComment(marked, alignLeftCommentEnhancer, wrapComment)(text);
   export const plaincode = code => {
     const html = code.replaceAll('<', '&lt;').replaceAll('>', '&gt;')
     return `<div class="cc"><pre><code>${html}</code></pre></div>`;
