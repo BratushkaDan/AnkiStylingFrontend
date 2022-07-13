@@ -1,151 +1,126 @@
 @import 'tokenClassnames';
-/*
-  @include programming_language(bash) {
-    // ampersand before the class name is required, whereby style receives .token classname in addition to its class name (foobar)
-    &.foobar {
-      background: red;
+
+// TODO: color theme
+.#{$token} {
+  &.#{$comment},
+  &.#{$block-comment},
+  &.#{$prolog},
+  &.#{$doctype},
+  &.#{$cdata} {
+    color: var(--code-documentation-comment);
+  }
+
+  &.#{$tag} {
+    color: var(--namespace-color)
+  }
+  &.#{$namespace} {
+    color: var(--tag-color)
+  }
+  &.#{$deleted} {
+    color: var(--deleted-color);
+  }
+
+  &.#{$attr-name} {
+    color: var(--attr-name);
+  }
+
+  &.#{$entity},
+  &.#{$url} {
+    color: var(--code-url-color);
+  }
+}
+
+&.#{$token} {
+  &.#{$variable} {
+    color: var(--variable-color);
+  }
+
+  &.#{$operator} {
+    color: var(--operator-color);
+  }
+
+  &.#{$function} {
+    color: var(--function-color);
+  }
+
+  &.#{$number} {
+    color: var(--number-color);
+  }
+
+  &.#{$regex-delimiter},
+  &.#{$punctuation} {
+    color: var(--punctuation-color);
+  }
+
+  &.#{$parameter} {
+    color: var(--parameter-color);
+  }
+
+  &.#{$property},
+  &.#{$class-name},
+  &.#{$constant},
+  &.#{$symbol} {
+    color: var(--property-color);
+  }
+
+  &.#{$boolean},
+  &.#{$selector},
+  &.#{$important},
+  &.#{$atrule},
+  &.#{$keyword} {
+    color: var(--builtin-color);
+  }
+
+  &.#{$string},
+  &.#{$char},
+  &.#{$attr-value},
+  &.#{$regex},
+  &.#{$variable},
+  &.#{$range} {
+    color: var(--string-color);
+  }
+
+  @if $lang == rust {
+    &.#{$function-definition} {
+      color: var(--function-name-color);
     }
   }
 
-*/
-
-// TODO: color thme
-@mixin programming_language(
-  $lang,
-) {
-  .#{$token} {
-    &.#{$comment},
-    &.#{$block-comment},
-    &.#{$prolog},
-    &.#{$doctype},
-    &.#{$cdata} {
-      color: var(--code-documentation-comment);
+  @if $lang == c or $lang == cs or $lang == java or $lang == rust {
+    &.#{$directive-hash},
+    &.#{$directive}.#{$keyword} {
+      color: var(--property-color);
     }
 
-    &.#{$tag} {
-      color: var(--namespace-color)
-    }
-    &.#{$namespace} {
-      color: var(--tag-color)
-    }
-    &.#{$deleted} {
-      color: var(--deleted-color);
+    &.#{$expression} {
+      color: var(--builtin-color);
     }
 
-    &.#{$attr-name} {
-      color: var(--attr-name);
-    }
-
-    &.#{$entity},
-    &.#{$url} {
-      color: var(--code-url-color);
+    &.#{$keyword},
+    &.#{$builtin} {
+      color: var(--keyword-color);
     }
   }
 
-  &.#{$lang} {
-    .#{$token} {
-      &.#{$variable} {
-        color: var(--variable-color);
-      }
+  @if $lang == js {
+    &.#{$regex-flags} {
+      color: var(--number-color);
+    }
+  }
 
-      &.#{$operator} {
-        color: var(--operator-color);
-      }
-
-      &.#{$function} {
-        color: var(--function-color);
-      }
-
-      &.#{$number} {
-        color: var(--number-color);
-      }
-
-      &.#{$regex-delimiter},
-      &.#{$punctuation} {
-        color: var(--punctuation-color);
-      }
-  
-      &.#{$parameter} {
-        color: var(--parameter-color);
-      }
-
-      &.#{$property},
-      &.#{$class-name},
-      &.#{$constant},
-      &.#{$symbol} {
-        color: var(--property-color);
-      }
-
-      &.#{$boolean},
-      &.#{$selector},
-      &.#{$important},
-      &.#{$atrule},
-      &.#{$keyword} {
-        color: var(--builtin-color);
-      }
-
-
-      &.#{$string},
-      &.#{$char},
-      &.#{$attr-value},
-      &.#{$regex},
-      &.#{$variable},
-      &.#{$range} {
-        color: var(--string-color);
-      }
-
-      @if $lang == rust {
-        &.#{$function-definition} {
-          color: var(--function-name-color);
-        }
-      }
-
-      @if $lang == c or $lang == cs or $lang == java or $lang == rust {
-        &.#{$directive-hash},
-        &.#{$directive}.#{$keyword} {
-          color: var(--property-color);
-        }
-
-        &.#{$expression} {
-          color: var(--builtin-color);
-        }
-
-        &.#{$keyword},
-        &.#{$builtin} {
-          color: var(--keyword-color);
-        }
-      }
-
-      @if $lang == js {
-        &.#{$regex-flags} {
-          color: var(--number-color);
-        }
-      }
-
-      &.#{$builtin} {
-        @if $lang == swift {
-          number-color: var(--number-color);
-        } @else {
-          color: var(--builtin-color);
-        }
-      }
-      @content;
+  &.#{$builtin} {
+    @if $lang == swift {
+      number-color: var(--number-color);
+    } @else {
+      color: var(--builtin-color);
     }
   }
 }
 
 .#{$code-container} {
-  @include programming_language(js);
   @include programming_language(bash/* , $builtin-color: #cc99cd */);
-  @include programming_language(html);
-  @include programming_language(sql);
   @include programming_language(mongo/* , $number-color: #6897BB */);
-  @include programming_language(py);
-  @include programming_language(graphql);
-  @include programming_language(json);
-  @include programming_language(css);
   @include programming_language(swift/* , $function-color: #f08d49 */);
-  // TODO: alter the way of creating custom colors
   @include programming_language(
     java/* ,
     $property-color: #fed5af,
@@ -163,7 +138,4 @@
   );
   @include programming_language(cs/* , $number-color: #6897BB */);
   @include programming_language(rust/* , $function-name-color: #FFC66D */);
-  @include programming_language(
-    go
-  );
 }
