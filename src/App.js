@@ -7,8 +7,11 @@ import RightColumn from "./Components/RightColumn";
 import RendererField from "./Components/RightColumn/RendererField";
 import Menu from "./Components/LeftColumn/Menu";
 import FormField from "./Components/LeftColumn/FormField";
+import {useSyncTheme} from './hooks/useThemeLoader';
 
 function App() {
+  useSyncTheme()
+  
   return (
     <div className="App">
       <LeftColumn>

@@ -12,10 +12,10 @@
 }
 
 .rendererField {
-  color: #fff;
+  color: var(--code-base-color);
   overflow-x: auto;
   margin-top: 10px;
-  background: hsl(240, 2%, 19%);
+  background-color: var(--code-background);
   box-sizing: border-box;
 }
 

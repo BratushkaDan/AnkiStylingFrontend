@@ -1,0 +1,71 @@
+/* https://github.com/enkia/tokyo-night-vscode-theme */
+:root[data-theme=light] {
+  --user-comment-text-color: #f5f6f7;
+  // --user-comment-background-color: #18191a;
+  // --user-comment-border-color: #000;
+  // --user-comment-italic-color: #FFC800; // rgb(166, 226, 46)
+  --user-comment-code-color: #EB5757;
+  --user-comment-code-background-color: rgba(135, 131, 120, .15);
+  --code-background: #fff;
+  --code-base-color: #000;
+
+  /* programming languages highlighting */
+  --punctuation-color: #000;
+  --variable-color: #e06c75;
+  --builtin-color: #cf222e;
+  --property-color: #051fae;
+  --parameter-color: #000;
+  --function-name-color: #8250df;
+  --function-color: #8250df;
+  --operator-color: #0550ae;
+  --number-color: #0550ae;
+  --string-color: #0a3069;
+  --keyword-color: #0a3069;
+  --namespace-color: #cf222e;
+  --tag-color: var(--namespace-color);
+  --deleted-color: var(--namespace-color);
+  --attr-name: #f9ab1a;
+  --code-url-color: rgb(85, 85, 201);
+  --code-documentation-comment: #888;
+}
+
+:root[data-theme=dark] {
+  --user-comment-text-color: #f5f6f7;
+  // --user-comment-background-color: #18191a;
+  // --user-comment-border-color: #000;
+  // --user-comment-italic-color: #FFC800; // rgb(166, 226, 46)
+  --user-comment-code-color: #EB5757;
+  --user-comment-code-background-color: rgba(135, 131, 120, .15);
+  --code-background: #24283b;
+  --code-base-color: #d5d6db;
+
+  /* programming languages highlighting */
+  --punctuation-color: #fff;
+  --variable-color: #c0caf5;
+  --builtin-color: #C679DD;
+  --property-color: #7dcfff;
+  --parameter-color: #9ACBD9;
+  --function-name-color: #6196cc;
+  --function-color: #61AEEF;
+  --operator-color: #b4f9f8;
+  --number-color: #ff9e64;
+  --string-color: #9ece6a;
+  --keyword-color: #ff9f38;
+  --namespace-color: #e2777a;
+  --tag-color: var(--namespace-color);
+  --deleted-color: var(--namespace-color);
+  --attr-name: #e5c17c;
+  --code-url-color: #67cdcc;
+  --code-documentation-comment: #888;
+}
+
+/* language-specific */
+
+div.cc.rust {
+  /* programming languages highlighting */
+  --tag-color: currentcolor;
+}
+:root[data-theme=dark] div.cc.rust {
+  /* programming languages highlighting */
+  
+}

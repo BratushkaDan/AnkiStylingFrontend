@@ -8,6 +8,7 @@ import MarkupContainer from "./MarkupContainer";
 
 import {useTopWindowOffset, useShortcut} from "../../hooks";
 import {wipeFields} from "../../slices/Field.slice";
+import {useThemeSwitcher} from '../../hooks/useThemeLoader';
 
 export default function RendererField() {
   const [isShowBoth, setIsShowBoth] = React.useState(true);
@@ -16,6 +17,7 @@ export default function RendererField() {
   const dispatch = useDispatch();
   const rendererFieldRef = React.useRef(null);
   const offset = useTopWindowOffset('20vh', rendererFieldRef);
+  const switchTheme = useThemeSwitcher()
 
   useShortcut(copyToClipboard, ['control', 'shift', 'u'], [inputFields]);
   useShortcut(handleClear, ['control', 'shift', 'h'], []);
@@ -67,6 +69,9 @@ export default function RendererField() {
       </Button>
       <Button variant="outlined" size="small" color="error" onClick={handleClear}>
         Clear{/* (ctrl + shift + h)*/}
+      </Button>
+      <Button variant="outlined" size="small" color="secondary" onClick={switchTheme}>
+        Switch Theme
       </Button>
     </p>
     <div className="rendererField" ref={rendererFieldRef} style={{height: `calc(100vh - ${offset})`}}>

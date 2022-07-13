@@ -1,7 +1,6 @@
 import { useEffect, useLayoutEffect, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Select, MenuItem } from '@mui/material';
-import './LanguagePicker.scss';
 import { languageSelectOptions } from '../../../common/languageSelectOptions.ts';
 import { pickLanguage } from "../../../slices/Language.slice";
 
@@ -34,7 +33,7 @@ export default function LanguagePicker() {
       value={language}
       onChange={handleLanguagePick}
       style={{
-        color: '#fff',
+        color: 'var(--main-text-color)',
         border: '1px solid #fff',
         width: '150px',
         height: '2em'

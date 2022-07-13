@@ -9,19 +9,9 @@
 
 */
 
+// TODO: color thme
 @mixin programming_language(
   $lang,
-  $punctuation-color: rgb(136, 198, 190),
-  $variable-color: #e06c75,
-  $parameter-color: #9ACBD9,
-  $function-name-color: #6196cc,
-  $function-color: #61AEEF,
-  $number-color: #f8c555,
-  $property-color: #f8c555,
-  $builtin-color: #C679DD,
-  $operator-color: #67cdcc,
-  $string-color: #98C379,
-  $keyword-color: #ff9f38
 ) {
   .#{$token} {
     &.#{$comment},
@@ -29,65 +19,61 @@
     &.#{$prolog},
     &.#{$doctype},
     &.#{$cdata} {
-      color: #999;
+      color: var(--code-documentation-comment);
     }
 
-    &.#{$tag},
-    &.#{$namespace},
+    &.#{$tag} {
+      color: var(--namespace-color)
+    }
+    &.#{$namespace} {
+      color: var(--tag-color)
+    }
     &.#{$deleted} {
-      color: #e2777a;
+      color: var(--deleted-color);
     }
 
     &.#{$attr-name} {
-      color: #E5C17C;
+      color: var(--attr-name);
     }
 
     &.#{$entity},
     &.#{$url} {
-      color: #67cdcc;
+      color: var(--code-url-color);
     }
   }
 
   &.#{$lang} {
-    @if $lang == c or $lang == rust {
-      color: lighten(#B5B6E3, 10%);
-    }
-
     .#{$token} {
       &.#{$variable} {
-        color: $variable-color;
+        color: var(--variable-color);
       }
 
       &.#{$operator} {
-        @if $lang == c or $lang == rust {
-          color: inherit;
-        } @else {
-          color: $operator-color;
-        }
+        color: var(--operator-color);
       }
 
       &.#{$function} {
-        color: $function-color;
+        color: var(--function-color);
       }
 
       &.#{$number} {
-        color: $number-color;
+        color: var(--number-color);
       }
 
       &.#{$regex-delimiter},
       &.#{$punctuation} {
-        color: $punctuation-color;
+        color: var(--punctuation-color);
       }
   
       &.#{$parameter} {
-        color: $parameter-color;
+        color: var(--parameter-color);
       }
 
       &.#{$property},
       &.#{$class-name},
       &.#{$constant},
       &.#{$symbol} {
-        color: $property-color;
+        color: var(--property-color);
       }
 
       &.#{$boolean},
@@ -95,7 +81,7 @@
       &.#{$important},
       &.#{$atrule},
       &.#{$keyword} {
-        color: $builtin-color;
+        color: var(--builtin-color);
       }
 
 
@@ -105,42 +91,42 @@
       &.#{$regex},
       &.#{$variable},
       &.#{$range} {
-        color: $string-color;
+        color: var(--string-color);
       }
 
       @if $lang == rust {
         &.#{$function-definition} {
-          color: $function-name-color;
+          color: var(--function-name-color);
         }
       }
 
       @if $lang == c or $lang == cs or $lang == java or $lang == rust {
         &.#{$directive-hash},
         &.#{$directive}.#{$keyword} {
-          color: $property-color;
+          color: var(--property-color);
         }
 
         &.#{$expression} {
-          color: $builtin-color;
+          color: var(--builtin-color);
         }
 
         &.#{$keyword},
         &.#{$builtin} {
-          color: $keyword-color;
+          color: var(--keyword-color);
         }
       }
 
       @if $lang == js {
         &.#{$regex-flags} {
-          color: $number-color;
+          color: var(--number-color);
         }
       }
 
       &.#{$builtin} {
         @if $lang == swift {
-          color: $number-color;
+          number-color: var(--number-color);
         } @else {
-          color: $builtin-color;
+          color: var(--builtin-color);
         }
       }
       @content;
@@ -150,30 +136,34 @@
 
 .#{$code-container} {
   @include programming_language(js);
-  @include programming_language(bash, $builtin-color: #cc99cd);
+  @include programming_language(bash/* , $builtin-color: #cc99cd */);
   @include programming_language(html);
   @include programming_language(sql);
-  @include programming_language(mongo, $number-color: #6897BB);
+  @include programming_language(mongo/* , $number-color: #6897BB */);
   @include programming_language(py);
   @include programming_language(graphql);
   @include programming_language(json);
   @include programming_language(css);
-  @include programming_language(swift, $function-color: #f08d49);
+  @include programming_language(swift/* , $function-color: #f08d49 */);
+  // TODO: alter the way of creating custom colors
   @include programming_language(
-    java,
+    java/* ,
     $property-color: #fed5af,
     $keyword-color: #ff9f38,
-    $variable-color: #98c379
+    $variable-color: #98c379 */
   );
   @include programming_language(
-    c,
+    c/* ,
     $number-color: #6897BB,
     $function-color: darken(#FFC66D, 10%),
     $punctuation-color: inherit,
     $builtin-color: darken(#CC7832, 10%),
     $parameter-color: #A9B7C6,
-    $string-color: #6A8759
+    $string-color: #6A8759 */
   );
-  @include programming_language(cs, $number-color: #6897BB);
-  @include programming_language(rust, $function-name-color: #FFC66D);
+  @include programming_language(cs/* , $number-color: #6897BB */);
+  @include programming_language(rust/* , $function-name-color: #FFC66D */);
+  @include programming_language(
+    go
+  );
 }

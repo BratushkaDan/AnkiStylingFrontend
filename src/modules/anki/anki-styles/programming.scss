@@ -1,14 +1,8 @@
 @import 'tokenClassnames';
 @import 'code';
 
+@import 'root-vars.scss';
 @import 'resources.scss';
-
-$user-comment-text-color: #f5f6f7;
-$user-comment-background-color: #18191a;
-$user-comment-border-color: #000;
-$user-comment-italic-color: #FFC800; // rgb(166, 226, 46)
-$user-comment-code-color: #EB5757;
-$user-comment-code-background: rgba(135, 131, 120, .15);
 
 h1, h2, h3, h4, h5, h6 {
   margin-top: .5em;
@@ -21,14 +15,14 @@ li {
 }
 
 .#{$code-container} pre {
-  //background: #2F2F31;
+  background: --code-background;
   padding-left: 10px;
   line-height: 1.65;
 }
 
 .#{$code-container} pre, .#{$code-container} code {
-  font-family: FiraCode, monospace;
-  font-size: 1.125rem;
+  font-family: Menlo, Monaco, 'Courier New', monospace; // FiraCode, monospace
+  font-size: .9rem;
   overflow-wrap: normal;
   width: inherit;
 }
@@ -46,24 +40,24 @@ img {
 
 .#{$user-comment} {
   width: calc(100% - 1em);
-  border: 2px solid $user-comment-border-color;
+  /* border: 2px solid $user-comment-border-color;
   border-radius: 6px;
-  background: $user-comment-background-color;
+  background: $user-comment-background-color; */
   padding: 5px;
   box-sizing: border-box;
-  text-align: center;
+  text-align: left;
   margin: 5px .5em;
-  color: $user-comment-text-color;
+  color: var(--user-comment-text-color);
   letter-spacing: .8px;
 
-  & i, & em {
+  /* & i, & em {
     font-style: normal;
     color: $user-comment-italic-color;
-  }
+  } */
 
   & code {
-    background: $user-comment-code-background;
-    color: $user-comment-code-color;
+    background: var(--user-comment-code-background-color, rgba(135, 131, 120, .15));
+    color: var(--user-comment-code-color, #EB5757);
     border-radius: 3px;
     padding: .2em .3em;
   }
