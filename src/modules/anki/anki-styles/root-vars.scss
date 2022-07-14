@@ -1,13 +1,13 @@
 /* https://github.com/enkia/tokyo-night-vscode-theme */
 :root[data-theme=light] {
-  --user-comment-text-color: #f5f6f7;
+  --code-background: transparent;
+  --code-base-color: #000;
+  --user-comment-text-color: var(--code-base-color);
   // --user-comment-background-color: #18191a;
   // --user-comment-border-color: #000;
   // --user-comment-italic-color: #FFC800; // rgb(166, 226, 46)
   --user-comment-code-color: #EB5757;
   --user-comment-code-background-color: rgba(135, 131, 120, .15);
-  --code-background: #fff;
-  --code-base-color: #000;
 
   /* programming languages highlighting */
   --punctuation-color: #000;
@@ -30,14 +30,14 @@
 }
 
 :root[data-theme=dark] {
-  --user-comment-text-color: #f5f6f7;
+  --code-background: #24283b;
+  --code-base-color: #d5d6db;
+  --user-comment-text-color: var(--code-base-color);
   // --user-comment-background-color: #18191a;
   // --user-comment-border-color: #000;
   // --user-comment-italic-color: #FFC800; // rgb(166, 226, 46)
   --user-comment-code-color: #EB5757;
   --user-comment-code-background-color: rgba(135, 131, 120, .15);
-  --code-background: #24283b;
-  --code-base-color: #d5d6db;
 
   /* programming languages highlighting */
   --punctuation-color: #fff;

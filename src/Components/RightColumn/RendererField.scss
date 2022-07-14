@@ -1,3 +1,5 @@
+@import '../../modules/anki/anki-styles/programming';
+
 .btnContainer {
   & > * {
     cursor: pointer;
@@ -29,10 +31,4 @@
 }
 .rendererField::-webkit-scrollbar-thumb {
   background: hsl(240, 2%, 4%);
-}
-
-@import '../../modules/anki/anki-styles/resources';
-
-.rendererField {
-  @import '../../modules/anki/anki-styles/programming';
 }

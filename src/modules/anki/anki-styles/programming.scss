@@ -1,7 +1,13 @@
-@import 'tokenClassnames';
-@import 'code';
-
+@import 'tokenClassnames.scss';
+/* must occur before the 'code.scss' */
 @import 'root-vars.scss';
+@import 'code.scss';
+
+/* ANKI ONLY! TODO: separate anki application and anki env */
+body {
+  color: var(--code-base-color);
+  background-color: var(--code-background);
+}
 
 h1, h2, h3, h4, h5, h6 {
   margin-top: .5em;
@@ -14,7 +20,6 @@ li {
 }
 
 .#{$code-container} pre {
-  background: --code-background;
   padding-left: 10px;
   line-height: 1.65;
 }
@@ -55,8 +60,7 @@ img {
   } */
 
   & code {
-    background: var(--user-comment-code-background-color, rgba(135, 131, 120, .15));
-    color: var(--user-comment-code-color, #EB5757);
+    color: var(--user-comment-code-color);
     border-radius: 3px;
     padding: .2em .3em;
   }

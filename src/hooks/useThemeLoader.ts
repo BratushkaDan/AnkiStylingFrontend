@@ -7,7 +7,6 @@ export enum Themes {
 
 export function useSyncTheme() {
   useLayoutEffect(() => {
-    console.log(window.localStorage.getItem('application-theme'))
     const theme = window.localStorage.getItem('application-theme') || Themes.DARK;
     const html = document.querySelector('html');
     if (html === null) {
