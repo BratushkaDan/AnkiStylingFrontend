@@ -24,7 +24,7 @@
   --namespace-color: #cf222e;
   --tag-color: var(--namespace-color);
   --deleted-color: var(--namespace-color);
-  --attr-name: #f9ab1a;
+  --attr-name: #748351;
   --code-url-color: rgb(85, 85, 201);
   --code-documentation-comment: #888;
 }
@@ -50,7 +50,7 @@
   --operator-color: #b4f9f8;
   --number-color: #ff9e64;
   --string-color: #9ece6a;
-  --keyword-color: #ff9f38;
+  --keyword-color: #C679DD;
   --namespace-color: #e2777a;
   --tag-color: var(--namespace-color);
   --deleted-color: var(--namespace-color);
@@ -65,7 +65,7 @@ div.cc.rust {
   /* programming languages highlighting */
   --tag-color: currentcolor;
 }
-:root[data-theme=dark] div.cc.rust {
-  /* programming languages highlighting */
+// :root[data-theme=dark] div.cc.rust {
+//   /* programming languages highlighting */
   
-}
+// }

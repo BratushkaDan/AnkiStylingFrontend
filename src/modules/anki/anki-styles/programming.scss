@@ -45,8 +45,7 @@ img {
 .#{$user-comment} {
   width: calc(100% - 1em);
   /* border: 2px solid $user-comment-border-color;
-  border-radius: 6px;
-  background: $user-comment-background-color; */
+  border-radius: 6px;*/
   padding: 5px;
   box-sizing: border-box;
   text-align: left;
@@ -61,6 +60,7 @@ img {
 
   & code {
     color: var(--user-comment-code-color);
+    background-color: var(--user-comment-code-background-color);
     border-radius: 3px;
     padding: .2em .3em;
   }
