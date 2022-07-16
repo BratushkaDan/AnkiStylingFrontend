@@ -6,7 +6,7 @@
 /* ANKI ONLY! TODO: separate anki application and anki env */
 body {
   color: var(--code-base-color);
-  background-color: var(--code-background);
+  background-color: var(--code-background)!important;
 }
 
 h1, h2, h3, h4, h5, h6 {

@@ -1,4 +1,4 @@
-/* https://github.com/enkia/tokyo-night-vscode-theme */
+/* https://github.com/enkia/tokyo-night-vscode-theme */#212431
 :root[data-theme=light] {
   --code-background: transparent;
   --code-base-color: #000;
@@ -27,6 +27,11 @@
   --attr-name: #748351;
   --code-url-color: rgb(85, 85, 201);
   --code-documentation-comment: #888;
+}
+
+// native anki application specific
+:root[data-theme=dark][data-anki-env] {
+  --code-background: #212431;
 }
 
 :root[data-theme=dark] {
