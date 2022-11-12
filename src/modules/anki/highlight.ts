@@ -1,5 +1,5 @@
 import Prism from 'prismjs';
-import marked from 'marked';
+import {marked} from 'marked';
 // LanguageHightlightModules
 import 'prismjs/components/prism-jsx.min.js';
 import 'prismjs/components/prism-typescript.min.js';
@@ -27,7 +27,7 @@ import 'prismjs/components/prism-toml.min.js';
 import 'prismjs/components/prism-go.min.js';
 
 import { processRegex } from './utils';
-import './mapPrismDefaultClassnames.js';
+import './mapPrismDefaultClassnames';
 
 function highlight(language: string, code: string, cssClassnameAlias = language) {
   const html = Prism.highlight(code, Prism.languages[language], language);
