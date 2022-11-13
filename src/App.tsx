@@ -1,41 +1,41 @@
-import styled from 'styled-components'
+import { Routes, Route } from 'react-router-dom';
+import styled from 'styled-components';
 
-import LeftColumn from "./Components/LeftColumn";
-import RightColumn from "./Components/RightColumn";
-import RendererField from "./Components/RightColumn/RendererField";
-import Menu from "./Components/LeftColumn/Menu";
-import FormField from "./Components/LeftColumn/FormField";
-import {useSyncTheme} from './hooks/useThemeLoader';
+import { Footer, Header } from './Components/Menu';
 
-const AppContainer = styled.div`
-  margin: .3rem;
+import { useSyncTheme } from './hooks/useThemeLoader';
 
-  min-height: 100vh;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 40% 60%;
-  grid-template-rows: 100vh;
-  grid-column-gap: 2px;
+import { AnkiDocs, Application, Demonstration, MainPage, MarkdownDocumentation, NotFoundPage } from './pages';
 
-  & > div {
-    margin: 0 1vw;
+const ApplicationContainer = styled.div`
+  & {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  & > :nth-child(2) {
+    flex: 1;
   }
 `;
 
 function App() {
-  useSyncTheme()
-  
-  return (
-    <AppContainer>
-      <LeftColumn>
-        <Menu/>
-        <FormField/>
-      </LeftColumn>
-      <RightColumn>
-        <RendererField/>
-      </RightColumn>
-    </AppContainer>
+  useSyncTheme();
 
+  return (
+    <>
+      <ApplicationContainer>
+        <Header />
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/anki-docs" element={<AnkiDocs />} />
+          <Route path="/app" element={<Application />} />
+          <Route path="/demo" element={<Demonstration />} />
+          <Route path="/md-docs" element={<MarkdownDocumentation />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+        <Footer />
+      </ApplicationContainer>
+    </>
   );
 }
 

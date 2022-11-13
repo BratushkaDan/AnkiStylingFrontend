@@ -1,9 +1,8 @@
-import {useEffect, useRef, useCallback} from 'react';
-import {useDispatch, useSelector} from "react-redux";
+import {useRef, useCallback} from 'react';
+import {useSelector} from "react-redux";
 import styled from 'styled-components'
 
 import {Form} from "./Form";
-import {addField} from "../../slices/Field.slice";
 import {useTopWindowOffset} from "../../hooks";
 
 const StyleFormField = styled(FormField)`
@@ -28,15 +27,9 @@ const StyleFormField = styled(FormField)`
 function FormField({className}: {className?: string}) {
   const inputFields = useSelector<any>(state => state.inputFields) as any[];
   const currentCardSide = useSelector<any>(state => state.cardSide);
-  console.log(inputFields, currentCardSide)
-  const dispatch = useDispatch();
 
   const formFieldRef = useRef(null);
   const fieldOffset = useTopWindowOffset('20vh', formFieldRef);
-
-  useEffect(() => {
-    dispatch(addField({type: 'comment', side: 'front'}));
-  }, [dispatch]);
 
   const processInputFields = useCallback(() => {
     return inputFields

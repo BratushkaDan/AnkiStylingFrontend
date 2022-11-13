@@ -8,7 +8,6 @@ import MarkupContainer from "./MarkupContainer";
 
 import {useTopWindowOffset} from "../../hooks";
 import {wipeFields} from "../../slices/Field.slice";
-import {useThemeSwitcher} from '../../hooks/useThemeLoader';
 
 export default function RendererField() {
   const [isShowBoth, setIsShowBoth] = useState(true);
@@ -17,10 +16,6 @@ export default function RendererField() {
   const dispatch = useDispatch();
   const rendererFieldRef = useRef(null);
   const offset = useTopWindowOffset('20vh', rendererFieldRef);
-  const switchTheme = useThemeSwitcher()
-
-  // useShortcut(copyToClipboard, ['control', 'shift', 'u'], [inputFields]);
-  // useShortcut(handleClear, ['control', 'shift', 'h'], []);
 
   const copyFrontToClipboard = useCallback((e: any) => {
     navigator.clipboard.writeText(inputFields.filter((field: any) => field.side === 'front').map((field: any) => field.highlightedMarkup).join(''));
@@ -54,26 +49,23 @@ export default function RendererField() {
   return <>
     <p className="btnContainer">
       <label>
-        Show Both Card Sides:
+        Показать обе стороны карточки:
         <Switch
           checked={isShowBoth}
           onChange={toggleShowBoth}
         />
       </label>
       <Button variant="outlined" size="small" onClick={copyFrontToClipboard}>
-        Copy Front{/* (ctrl+shift+u)*/}
+        Скопировать переднюю часть{/* (ctrl+shift+u)*/}
       </Button>
       <Button variant="outlined" size="small" onClick={copyBackToClipboard}>
-        Copy Back{/* (ctrl+shift+u)*/}
+        Скопировать заднюю часть{/* (ctrl+shift+u)*/}
       </Button>
       <Button variant="outlined" size="small" onClick={copyToClipboard}>
-        Copy Both{/* (ctrl+shift+u)*/}
+        Скопировать все тело карточки{/* (ctrl+shift+u)*/}
       </Button>
       <Button variant="outlined" size="small" color="error" onClick={handleClear}>
-        Clear{/* (ctrl + shift + h)*/}
-      </Button>
-      <Button variant="outlined" size="small" color="secondary" onClick={switchTheme}>
-        Switch Theme
+        Очистить содержимое{/* (ctrl + shift + h)*/}
       </Button>
     </p>
     <div className="rendererField" ref={rendererFieldRef} style={{height: `calc(100vh - ${offset})`}}>

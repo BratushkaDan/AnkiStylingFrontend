@@ -68,7 +68,6 @@ export function modifyField({id, value}): any {
 /* wipeFields-thunk consuming highlightSyntax Promise API */
 export function wipeFields(): any {
   return function (dispatch) {
-    let commentField = {type: 'comment', language: 'comment', value: '', side: 'front', highlightedMarkup: highlightSyntax['comment'](''), id: nanoid()};
-    return dispatch(wipeFieldsAction([commentField]));
+    return dispatch(wipeFieldsAction([]));
   }
 }

@@ -1,4 +1,4 @@
-import { useLayoutEffect, useCallback } from 'react';
+import { useLayoutEffect, useCallback, useState } from 'react';
 
 export enum Themes {
   LIGHT = 'light',
@@ -17,15 +17,19 @@ export function useSyncTheme() {
 }
 
 export function useThemeSwitcher() {
-  return useCallback(() => {
-    const oldTheme = window.localStorage.getItem('application-theme') || Themes.DARK;
-    const newTheme = oldTheme === Themes.DARK ? Themes.LIGHT : Themes.DARK;
-    
-    const html = document.querySelector('html');
-    if (html === null) {
-      return;
-    }
-    window.localStorage.setItem('application-theme', newTheme)
-    html.dataset.theme = newTheme;
-  }, []);
+  let [theme, setTheme] = useState((window.localStorage.getItem('application-theme') as Themes) || Themes.DARK);
+  return [
+    theme,
+    useCallback(() => {
+      const newTheme = theme === Themes.DARK ? Themes.LIGHT : Themes.DARK;
+      
+      const html = document.querySelector('html');
+      if (html === null) {
+        return;
+      }
+      window.localStorage.setItem('application-theme', newTheme);
+      setTheme(newTheme);
+      html.dataset.theme = newTheme;
+    }, [theme]),
+  ] as const;
 }

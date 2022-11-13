@@ -1,28 +1,34 @@
 import styled from 'styled-components';
 
-import LanguagePicker from "./Menu/LanguagePicker";
-import AddSection from "./Menu/AddSection";
-import CardSidePicker from "./Menu/CardSidePicker";
+import LanguagePicker from './Menu/LanguagePicker';
+import { AddSection } from './Menu/AddSection';
+import { CardSidePicker } from './Menu/CardSidePicker';
 
-const StyledMenu = styled(Menu)`
+const StyledMenu = styled.div`
   display: flex;
   justify-content: flex-start;
 
-  & > *:nth-child(n+2) {
-    margin-left: 1em;
+  @media (max-width: 776px) {
+    flex-direction: column;
+
+    & > :nth-child(2) {
+      order: 1;
+    }
   }
 
-  & > * {
-    margin: 1em 0;
+  @media (min-width: 777px) {
+    & > *:nth-child(n + 2) {
+      margin-left: 1em;
+    }
   }
-`
+`;
 
-function Menu({className}: {className?: string}) {
-  return <div className={className}>
-    <LanguagePicker/>
-    <CardSidePicker/>
-    <AddSection/>
-  </div>
-}
-
-export default StyledMenu
+export const Menu = ({ className }: { className?: string }) => {
+  return (
+    <StyledMenu className={className}>
+      <LanguagePicker />
+      <CardSidePicker />
+      <AddSection />
+    </StyledMenu>
+  );
+};
