@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 import { LeftColumn } from '../Components/LeftColumn/LeftColumn';
-import RightColumn from '../Components/RightColumn/RightColumn';
-import RendererField from '../Components/RightColumn/RendererField';
-import Menu from '../Components/LeftColumn/Menu';
-import FormField from '../Components/LeftColumn/FormField';
+import { RightColumn } from '../Components/RightColumn/RightColumn';
+import { RendererField } from '../Components/RightColumn/RendererField';
+import { Menu } from '../Components/LeftColumn/Menu';
+import { FormField } from '../Components/LeftColumn/FormField';
 
 const StyledApplication = styled.div`
   width: 100%;

@@ -10,6 +10,9 @@ const addIconStyle = { width: 24, height: 24 };
 
 const StyledAddSection = styled.div`
   padding-top: 8px;
+
+  min-width: 64px;
+
   & > *:nth-child(n + 2) {
     margin-left: 1em;
   }
@@ -34,13 +37,13 @@ export const AddSection = ({ className }: { className?: string }) => {
   }, [cardSide, language]);
 
   return (
-    <div className={className}>
+    <StyledAddSection className={className}>
       <span title="Add comment">
         <CommentIcon style={addIconStyle} onClick={addComment} />
       </span>
       <span title="Add code snippet">
         <CodeIcon style={addIconStyle} onClick={addSnippet} />
       </span>
-    </div>
+    </StyledAddSection>
   );
 };
