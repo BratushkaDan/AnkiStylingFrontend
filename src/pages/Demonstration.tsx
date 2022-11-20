@@ -1,8 +1,8 @@
 import { nanoid } from '@reduxjs/toolkit';
-import { useEffect, useState, useRef, useCallback } from 'react';
+import { useEffect, useState } from 'react';
 import type { FC } from 'react';
 import styled from 'styled-components';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import '../modules/anki/anki-styles/programming.scss';
@@ -212,9 +212,8 @@ export const Demonstration: FC<{}> = () => {
   return (
     <StyledDemonstration>
       <div
-        className={['demo-welcome', clicked && 'fade-out-1']
-          .filter(Boolean)
-          .join(' ')} style={!welcomeFaded ? {} : { display: 'none' }}
+        className={['demo-welcome', clicked && 'fade-out-1'].filter(Boolean).join(' ')}
+        style={!welcomeFaded ? {} : { display: 'none' }}
       >
         <h1 className="fade-in-1">Узнаем что-то новое про Node.js?</h1>
         <div

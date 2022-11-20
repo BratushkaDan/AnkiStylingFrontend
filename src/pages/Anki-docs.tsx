@@ -18,6 +18,11 @@ const StyledAnkiDocs = styled.main`
 
   text-align: justify;
 
+  & a {
+    color: var(--link-color);
+    text-decoration: inherit;
+  }
+
   & > .introduction {
     margin-top: 50px;
 
@@ -127,8 +132,8 @@ export const AnkiDocs: FC<{}> = () => {
           <h2>Что такое Anki?</h2>
           <div className="text">
             <p>
-              Justo magna duo ipsum no sit dolores justo sed tempor dolores, lorem invidunt ea magna diam nonumy ipsum
-              et, invidunt sed et elitr sit, consetetur dolores amet accusam sit amet.
+              Anki — программа для облегчения запоминания слов, выражений и любой другой информации с помощью
+              интервальных повторений.
             </p>
           </div>
         </div>
@@ -138,8 +143,11 @@ export const AnkiDocs: FC<{}> = () => {
           <h2>Система интервальных повторений?</h2>
           <div className="text">
             <p>
-              Justo magna duo ipsum no sit dolores justo sed tempor dolores, lorem invidunt ea magna diam nonumy ipsum
-              et, invidunt sed et elitr sit, consetetur dolores amet accusam sit amet.
+              Интервальные повторения - техника удержания в памяти, заключающаяся в повторении запомненного учебного
+              материала по определённым, постоянно возрастающим интервалам. Хотя этот принцип может найти применение для
+              запоминания любой информации, наиболее широкое распространение он получил при изучении иностранных языков.
+              Интервальные повторения не предполагают заучивания наизусть без понимания (но и не исключают его), и не
+              противопоставляются мнемонике.
             </p>
           </div>
         </div>
@@ -150,8 +158,12 @@ export const AnkiDocs: FC<{}> = () => {
           <h2>Что насчет аналогов?</h2>
           <div className="text">
             <p>
-              Justo magna duo ipsum no sit dolores justo sed tempor dolores, lorem invidunt ea magna diam nonumy ipsum
-              et, invidunt sed et elitr sit, consetetur dolores amet accusam sit amet.
+              По состоянию на сегодня Anki имеет лишь 2 аналога, обладающие менее гибким функционалом (но все же гибким,
+              по сравнению с другими аналогами), при этом имеющими более совершенный интерфейс по сравнению с Anki.
+            </p>
+            <p>
+              Стоит заметить, что Anki — бесплатное ПО, а представленные аналоги условно бесплатны — то есть Anki
+              предоставляет функционал, за которые сервисы запрашивают деньги по модели подписки, бесплатно.
             </p>
           </div>
         </div>
@@ -161,10 +173,12 @@ export const AnkiDocs: FC<{}> = () => {
           <h2>Mochi</h2>
           <div className="text">
             <p>
-              Justo magna duo ipsum no sit dolores justo sed tempor dolores, lorem invidunt ea magna diam nonumy ipsum
-              et, invidunt sed et elitr sit, consetetur dolores amet accusam sit amet.
+              Это бесплатное приложение (Windows+MacOS+веб), в которое вы сами заносите карточки с материалом, который
+              хотите усвоить, а оно вам помогает его запомнить через методику интервального повторения.
             </p>
-            <p>Mochi является платным ПО</p>
+            <p>
+              <strong>Функции, без которых приложением пользоваться неудобно, являются платными в Mochi.</strong>
+            </p>
           </div>
         </div>
         <img src={Mochi} />
@@ -174,15 +188,35 @@ export const AnkiDocs: FC<{}> = () => {
         <div className="description">
           <h2>Quizlet</h2>
           <div className="text">
-            Justo magna duo ipsum no sit dolores justo sed tempor dolores, lorem invidunt ea magna diam nonumy ipsum et,
-            invidunt sed et elitr sit, consetetur dolores amet accusam sit amet.
+            <p>
+              это бесплатный сервис, который позволяет легко запоминать любую информацию, которую можно представить в
+              виде учебных карточек. Все что требуется — это найти в базе или создать интерактивный материал —
+              собственные карточки, добавляя к ним картинки и аудиофайлы и затем выполнять упражнения и играть в игры,
+              чтобы запомнить данный материал.
+            </p>
+            <p>
+              Без подписки на Quizlet возможности обучающих значительно ограничены (
+              <a
+                target="_blank"
+                href="https://help.quizlet.com/hc/ru/articles/360041181691-%D0%9F%D0%BE%D0%B4%D0%BF%D0%B8%D1%81%D0%BA%D0%B0-%D0%BD%D0%B0-Quizlet"
+              >
+                подробнее
+              </a>
+              )
+            </p>
           </div>
         </div>
       </div>
       <div className="aids-programming">
         <div className="description">
           <h2>Помогает в изучении программирования?</h2>
-          <div className="text">Ещё как!</div>
+          <div className="text">
+            <p>
+              Ещё как! Anki не навязывает зубрежку как стиль изучения каких-либо материалов, правильно созданные
+              материалы позволяют изучать какую-либо тему, получая понимание. Правильно создать материалы по
+              программированию поможет редактор заметок на этом сайте.
+            </p>
+          </div>
         </div>
         <img src={CodingImg} />
       </div>

@@ -90,27 +90,26 @@ export const MarkdownDocumentation: FC<{}> = () => {
       <div>
         <h2 className="overview">Обзор</h2>
         <p>
-          This Markdown cheat sheet provides a quick overview of all the Markdown syntax elements. It can’t cover every
-          edge case, so if you need more information about any of these elements, refer to the reference guides for{' '}
-          <a href="#basic-syntax">basic syntax</a> and <a href="#extended-syntax">extended syntax</a>.
+          Эта шпаргалка по Markdown предоставляет краткий обзор синтаксиса элементов разметки Markdown.
+          Она не покрывает каждый граничный случай, поэтому для изучения профессиональной разметки с Markdown Вам стоит обратиться к более подробному источнику.
         </p>
+        <p>Эта же шпаргалка покрывает нужды большой части пользователей: <a href="#basic-syntax">базовый синтаксис</a> и <a href="#extended-syntax">продвинутый синтаксис</a>.</p>
         <div className="basic-syntax-container">
           <div>
             <h2 id="basic-syntax">Базовые возможности</h2>
             <p>
-              These are the elements outlined in John Gruber’s original design document. All Markdown applications
-              support these elements.
+              В таблице представлены самые базовые элементы, предоставляющие возможность создания незамысловатой, но полезной и структурированной разметки текста.
             </p>
             <table className="table table-bordered">
               <thead className="thead-light">
                 <tr>
-                  <th>Element</th>
-                  <th>Markdown Syntax</th>
+                  <th>Элемент</th>
+                  <th>Синтаксис Markdown</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>Heading</td>
+                  <td>Заголовок</td>
                   <td>
                     <code>
                       # H1
@@ -122,25 +121,25 @@ export const MarkdownDocumentation: FC<{}> = () => {
                   </td>
                 </tr>
                 <tr>
-                  <td>Bold</td>
+                  <td>Полужирный</td>
                   <td>
                     <code>**bold text**</code>
                   </td>
                 </tr>
                 <tr>
-                  <td>Italic</td>
+                  <td>Наклонный</td>
                   <td>
                     <code>*italicized text*</code>
                   </td>
                 </tr>
                 <tr>
-                  <td>Blockquote</td>
+                  <td>Цитата</td>
                   <td>
                     <code>&gt; blockquote</code>
                   </td>
                 </tr>
                 <tr>
-                  <td>Ordered List</td>
+                  <td>Нумерованный список</td>
                   <td>
                     <code>
                       1. First item
@@ -153,7 +152,7 @@ export const MarkdownDocumentation: FC<{}> = () => {
                   </td>
                 </tr>
                 <tr>
-                  <td>Unordered List</td>
+                  <td>Ненумерованный список</td>
                   <td>
                     <code>
                       - First item
@@ -166,25 +165,25 @@ export const MarkdownDocumentation: FC<{}> = () => {
                   </td>
                 </tr>
                 <tr>
-                  <td>Code</td>
+                  <td>Код</td>
                   <td>
                     <code>`code`</code>
                   </td>
                 </tr>
                 <tr>
-                  <td>Horizontal Rule</td>
+                  <td>Горизонтальная линия</td>
                   <td>
                     <code>---</code>
                   </td>
                 </tr>
                 <tr>
-                  <td>Link</td>
+                  <td>Ссылка</td>
                   <td>
                     <code>[title](https://www.example.com)</code>
                   </td>
                 </tr>
                 <tr>
-                  <td>Image</td>
+                  <td>Изображение</td>
                   <td>
                     <code>![alt text](image.jpg)</code>
                   </td>
@@ -199,29 +198,29 @@ export const MarkdownDocumentation: FC<{}> = () => {
           <div>
             <h2 id="extended-syntax">Продвинутые возможности</h2>
             <p>
-              These elements extend the basic syntax by adding additional features. Not all Markdown applications
-              support these elements.
+              В этом разделе можно ознакомиться с продвинутыми возможностями Markdown — опциями,
+              позволяющими в полной мере ощутить мощь языка разметки Markdown при редактировании текста.
             </p>
             <table className="table table-bordered">
               <thead className="thead-light">
                 <tr>
-                  <th>Element</th>
-                  <th>Markdown Syntax</th>
+                  <th>Элемент</th>
+                  <th>Синтаксис Markdown</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>Table</td>
+                  <td>Таблица</td>
                   <td>
                     <code>
-                      | Syntax | Description |<br />
+                      | Синтаксис | Описание |<br />
                       | ----------- | ----------- |<br />
-                      | Header | Title |<br />| Paragraph | Text |
+                      | Заголовок | Шапка |<br />| Параграф | Текст |
                     </code>
                   </td>
                 </tr>
                 <tr>
-                  <td>Fenced Code Block</td>
+                  <td>Многострочный блок кода</td>
                   <td>
                     <code>
                       ```
@@ -241,18 +240,18 @@ export const MarkdownDocumentation: FC<{}> = () => {
                   </td>
                 </tr>
                 <tr>
-                  <td>Footnote</td>
+                  <td>Сноска</td>
                   <td>
                     <code>
-                      Here's a sentence with a footnote. [^1]
+                      Предложение со сноской. [^1]
                       <br />
                       <br />
-                      [^1]: This is the footnote.
+                      [^1]: Это сноска.
                     </code>
                   </td>
                 </tr>
                 <tr>
-                  <td>Heading ID</td>
+                  <td>Идентификатор заголовка</td>
                   <td>
                     <code>
                       ### My Great Heading {'{'}#custom-id{'}'}
@@ -260,22 +259,22 @@ export const MarkdownDocumentation: FC<{}> = () => {
                   </td>
                 </tr>
                 <tr>
-                  <td>Definition List</td>
+                  <td>Список определений</td>
                   <td>
                     <code>
-                      term
-                      <br />: definition
+                      термин
+                      <br />: определение
                     </code>
                   </td>
                 </tr>
                 <tr>
-                  <td>Strikethrough</td>
+                  <td>Перечеркивание</td>
                   <td>
                     <code>~~The world is flat.~~</code>
                   </td>
                 </tr>
                 <tr>
-                  <td>Task List</td>
+                  <td>Список задач</td>
                   <td>
                     <code>
                       - [x] Write the press release
@@ -286,25 +285,25 @@ export const MarkdownDocumentation: FC<{}> = () => {
                   </td>
                 </tr>
                 <tr>
-                  <td>Emoji</td>
+                  <td>Эмоджи</td>
                   <td>
                     <code>That is so funny! :joy:</code>
                   </td>
                 </tr>
                 <tr>
-                  <td>Highlight</td>
+                  <td>Подсветка фрагмента</td>
                   <td>
                     <code>I need to highlight these ==very important words==.</code>
                   </td>
                 </tr>
                 <tr>
-                  <td>Subscript</td>
+                  <td>Нижний индекс</td>
                   <td>
                     <code>H~2~O</code>
                   </td>
                 </tr>
                 <tr>
-                  <td>Superscript</td>
+                  <td>Верхний индекс</td>
                   <td>
                     <code>X^2^</code>
                   </td>
