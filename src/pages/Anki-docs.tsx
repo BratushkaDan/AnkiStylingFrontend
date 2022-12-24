@@ -16,6 +16,13 @@ const StyledAnkiDocs = styled.main`
   max-width: 1192px;
   margin: 0 auto 10px;
 
+  @media (max-width: 771px) {
+    padding: 0;
+    max-width: 100%;
+
+    margin: 0 12px;
+  }
+
   text-align: justify;
 
   & a {
@@ -29,6 +36,10 @@ const StyledAnkiDocs = styled.main`
     display: flex;
     align-items: center;
 
+    @media (max-width: 576px) {
+      flex-direction: column-reverse;
+    }
+
     & > img {
       min-width: 200px;
       min-height: 200px;
@@ -39,7 +50,14 @@ const StyledAnkiDocs = styled.main`
 
     & > .description {
       max-width: 50%;
-      margin-left: 25px;
+      @media (max-width: 576px) {
+        max-width: 100%;
+      }
+
+      @media (min-width: 772px) {
+        margin-left: 25px;
+      }
+
 
       & > h2 {
         font-size: 2.5rem;
@@ -118,6 +136,14 @@ const StyledAnkiDocs = styled.main`
       & img {
         order: 1;
         margin-top: 30px;
+      }
+    }
+  }
+
+  @media (max-width: 771px) {
+    & .aids-programming .description {
+      & h2 {
+        font-size: 1.6rem;
       }
     }
   }

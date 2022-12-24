@@ -7,8 +7,12 @@ import MarkdownDemoImg2 from '../assets/markdown-2.png';
 import MarkdownDemoImg3 from '../assets/markdown-3.png';
 
 export const StyledMarkdownDocumentation = styled.div`
-  max-width: clamp(400px, 90%, 1444px);
+  max-width: clamp(300px, 90%, 1444px);
   margin: 0 auto 20px;
+
+  @media (max-width: 372px) {
+    margin: 0 7px;
+  }
 
   & a {
     color: var(--link-color);
@@ -21,6 +25,10 @@ export const StyledMarkdownDocumentation = styled.div`
 
   & h2 {
     font-size: 2rem;
+
+    @media (max-width: 576px) {
+      font-size: 1.5rem;
+    }
   }
 
   & h2.overview {
@@ -54,6 +62,18 @@ export const StyledMarkdownDocumentation = styled.div`
 
     & h2 {
       margin-top: 0;
+    }
+  }
+
+  & .basic-syntax-container {
+    @media (max-width: 576px) {
+      & img {
+        width: 80%;
+      }
+  
+      & table {
+        font-size: .75rem;
+      } 
     }
   }
 

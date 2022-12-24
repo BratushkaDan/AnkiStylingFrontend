@@ -51,6 +51,10 @@ const StyledMainPage = styled.div`
       @media (max-width: 772px) {
         font-size: 1rem;
       }
+
+      @media (max-width: 572px) {
+        font-size: .75rem;
+      }
     }
   }
   
